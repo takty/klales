@@ -191,26 +191,25 @@ h6 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 1); }
 
 // -----------------------------------------------------------------------------
 
-a:where([href^='http'], [href^='https'])::after {
-	content: '↗';
-	font-family: Arial, 'BIZ UDPGothic';
-
+a:where(
+	[href^='http'i], [href^='https'i],
+	[href$='.doc'i], [href$='.docx'i],
+	[href$='.xls'i], [href$='.xlsx'i],
+	[href$='.ppt'i], [href$='.pptx'i],
+	[href$='.pdf'i],
+	[href$='.zip'i]
+)::after {
 	display            : inline-block;
 	margin-inline-start: 0.25em;
-	// margin-inline-start: 0;
 
-	// width         : 1em;
-	// height        : 1em;
-	// font-size     : 100%;
-	line-height   : 1;
-	// vertical-align: -15%;
-	font-size  : 70%;
+	font-weight: bold;
+	line-height: 1;
+}
 
-	// background-color: currentColor;
-	// clip-path       : polygon(6% 50%, 50% 94%, 66% 78%, 58% 70%, 50% 78%, 22% 50%, 43% 50%, 43% 57%, 72% 57%, 70% 72%, 96% 50%, 70% 28%, 72% 43%, 43% 43%, 43% 50%, 22% 50%, 50% 22%, 58% 30%, 66% 22%, 50% 6%);
-
-	-webkit-print-color-adjust: exact;
-	print-color-adjust        : exact;  // For print
+a:where([href^='http'], [href^='https'])::after {
+	content    : '↗';
+	font-family: Calibri, system-ui;
+	font-size  : 85%;
 }
 
 a:where(
@@ -220,36 +219,15 @@ a:where(
 	[href$='.pdf'i],
 	[href$='.zip'i]
 )::after {
-	text-transform: uppercase;
 	font-family: inherit;
-	font-weight: bold;
-
-	display            : inline-block;
-	// align-items        : center;
-	margin-inline-start: 0.25em;
-	vertical-align: baseline;
-	text-decoration: none;
-
-	// width      : auto;
-	// height     : calc(1em + 2px);
-	// padding    : 0 3px;
-	font-size  : 70%;
-	// line-height: 0;
-
-	// -webkit-text-fill-color: Canvas;
-	// background-color       : currentColor;
-	background-color       : transparent;
-	clip-path              : none;
-
-	// -webkit-print-color-adjust: exact;
-	// print-color-adjust        : exact;  // For print
+	font-size  : 75%;
 }
 
-a:is([href$='.doc'i], [href$='.docx'i])::after { content: '[doc]'; }
-a:is([href$='.xls'i], [href$='.xlsx'i])::after { content: '[xls]'; }
-a:is([href$='.ppt'i], [href$='.pptx'i])::after { content: '[ppt]'; }
-a[href$='.pdf'i]::after { content: '[pdf]'; }
-a[href$='.zip'i]::after { content: '[zip]'; }
+a:is([href$='.doc'i], [href$='.docx'i])::after { content: '[DOC]'; }
+a:is([href$='.xls'i], [href$='.xlsx'i])::after { content: '[XLS]'; }
+a:is([href$='.ppt'i], [href$='.pptx'i])::after { content: '[PPT]'; }
+a[href$='.pdf'i]::after { content: '[PDF]'; }
+a[href$='.zip'i]::after { content: '[ZIP]'; }
 
 // -----------------------------------------------------------------------------
 
