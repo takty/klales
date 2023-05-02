@@ -1,0 +1,336 @@
+:root {
+  line-height: calc(1em + .75rem);
+}
+
+* {
+  font-family: inherit;
+}
+
+*, :before, :after {
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+}
+
+:where(blockquote, pre, ul, ol, dl, figure, table, hr) {
+  margin-block: 2rem;
+}
+
+:where(p, div, details) {
+  margin-block: 1rem;
+}
+
+summary + * {
+  margin-block-start: 1rem;
+}
+
+h1 {
+  margin-block: 3.5rem 3rem;
+}
+
+h2 {
+  margin-block: 3rem 2.5rem;
+}
+
+h3 {
+  margin-block: 2.5rem 2rem;
+}
+
+h4, h5, h6 {
+  margin-block: 2rem 1.5rem;
+}
+
+:is(li, td, th, caption, figcaption, label, legend) {
+  line-height: calc(1em + .5rem);
+}
+
+:is(p, div, h1, h2, h3, h4, h5, h6) {
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+:is(table, h1, h2, h3, h4, h5, h6 li, td, th, caption, figcaption, label, legend) {
+  font-feature-settings: "pkna" 1;
+}
+
+:where(ul, ol, dl) :is(ul, ol, dl) {
+  margin-block: 1rem;
+}
+
+li {
+  margin-block: .75rem;
+}
+
+dt {
+  margin-block-start: .75rem;
+}
+
+dd:last-of-type {
+  margin-block-end: .75rem;
+}
+
+:is(ul, ol) {
+  padding-inline-start: clamp(2rem, 999900% - 359964rem, 3rem);
+}
+
+dd {
+  margin-inline-start: clamp(2rem, 999900% - 359964rem, 3rem);
+}
+
+li::marker, dt {
+  color: #999;
+  font-weight: bold;
+}
+
+nav ul {
+  padding-inline-start: 0;
+  list-style-type: none;
+}
+
+nav ul li {
+  margin-block: 0;
+}
+
+table {
+  border-collapse: collapse;
+  display: block;
+  overflow-x: auto;
+}
+
+:is(thead, tbody, tfoot), :is(td, th) {
+  border-block: 1px solid #ddd;
+}
+
+:is(td, th):where(:not(:first-child)) {
+  border-inline-start: 1px solid #ddd;
+}
+
+:is(td, th):where(:first-child[rowspan]) {
+  border-inline-end: 1px solid #ddd;
+}
+
+:is(td, th) {
+  text-align: start;
+  vertical-align: top;
+  padding: .25rem .5rem;
+}
+
+:is(thead td, th) {
+  background-color: #eee;
+  font-weight: bold;
+}
+
+td p {
+  text-align: unset;
+  margin-block: 0;
+}
+
+td p + p {
+  margin-block-start: .5rem;
+}
+
+caption {
+  text-align: left;
+  max-inline-size: max-content;
+  width: 90%;
+  margin-inline: auto;
+  padding-block-end: .75rem;
+  font-size: 85%;
+}
+
+:is(strong, b) {
+  font-weight: bold;
+}
+
+:is(cite, dfn) {
+  font-style: normal;
+  font-family: var(--font-family-italic, inherit);
+  font-weight: bolder;
+}
+
+:is(u, ins) {
+  -webkit-text-decoration: underline #00cc00a6;
+  text-decoration: underline #00cc00a6;
+  text-decoration-thickness: 2px;
+}
+
+:is(s, strike, del) {
+  -webkit-text-decoration: line-through #ff4400a6;
+  text-decoration: line-through #ff4400a6;
+  text-decoration-thickness: 2px;
+}
+
+:is(code, kbd, samp, var) {
+  margin-inline: .05em;
+}
+
+small {
+  font-size: 85%;
+}
+
+:is(sub, sup) {
+  vertical-align: baseline;
+  margin-inline: .0625em;
+  line-height: 1;
+  display: inline-block;
+  position: relative;
+}
+
+sub {
+  margin-block-end: -.25em;
+  inset-block-end: -.25em;
+}
+
+sup {
+  margin-block-start: -.75em;
+  inset-block-start: -.75em;
+}
+
+mark {
+  color: #000;
+  background-color: #eeee00a6;
+  outline: 2px solid #eeee00a6;
+}
+
+abbr[title] {
+  cursor: help;
+  -webkit-text-decoration: underline dotted;
+  text-decoration: underline dotted;
+  text-decoration-thickness: 2px;
+}
+
+rt {
+  transform: translateY(.125em);
+}
+
+:is(img, iframe) {
+  break-inside: avoid;
+}
+
+details[open] {
+  z-index: 0;
+  position: relative;
+}
+
+details[open]:before {
+  content: "";
+  z-index: -1;
+  border-inline-start: .75rem solid #eee;
+  position: absolute;
+  inset: 2rem auto 0 0;
+}
+
+summary {
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  display: list-item;
+}
+
+:is(p, div) {
+  text-align: start;
+}
+
+hr {
+  border: none;
+  border-block-start: 2px solid #ddd;
+}
+
+blockquote {
+  margin-inline: 0;
+  padding-inline-start: clamp(2rem, 999900% - 359964rem, 3rem);
+  font-style: normal;
+  position: relative;
+}
+
+blockquote:before {
+  content: "";
+  height: calc(100% - .5em);
+  width: clamp(1px, 999900% - 359964rem, 1.5rem);
+  border-inline-end: 2px solid #ddd;
+  position: absolute;
+  inset-block-start: .25em;
+  inset-inline-start: 0;
+}
+
+blockquote > cite {
+  text-align: start;
+  font-style: normal;
+  display: block;
+}
+
+pre {
+  background-color: #c0c0c040;
+  padding: 1.75rem 2rem;
+  overflow-x: auto;
+}
+
+pre > code {
+  white-space: pre;
+  background-color: #0000;
+}
+
+address {
+  font-style: normal;
+  font-family: var(--font-family-italic, inherit);
+}
+
+:is(img, svg, video, canvas, iframe, embed, object, audio) {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+:is(img, svg, video, canvas) {
+  height: auto;
+}
+
+:is(iframe) {
+  border: 0;
+}
+
+:is(h1, h2, h3, h4, h5, h6) {
+  overflow-wrap: break-word;
+  break-after: avoid;
+}
+
+:is(h1, h2, h3, h4, h5, h6) > small {
+  display: block;
+}
+
+:is(h1, h2, h3, h4, h5, h6) span {
+  -webkit-text-decoration: inherit;
+  text-decoration: inherit;
+  display: inline-block;
+}
+
+:is(h1, h2, h3, h4, h5, h6) div {
+  line-height: inherit;
+  text-align: inherit;
+}
+
+figure {
+  max-width: 100%;
+  margin-inline: 0;
+}
+
+figure :is(img, iframe) {
+  margin: auto;
+  display: grid;
+}
+
+figure > a {
+  display: contents;
+}
+
+figcaption {
+  text-align: left;
+  max-inline-size: max-content;
+  width: 90%;
+  margin-inline: auto;
+  font-size: 85%;
+}
+
+* + figcaption {
+  margin-block-start: .75rem;
+}
+
+/*# sourceMappingURL=index.d6ea4c84.css.map */

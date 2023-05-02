@@ -1,0 +1,637 @@
+*,
+::before,
+::after {
+	box-sizing       : border-box;
+	background-repeat: no-repeat;
+}
+
+:focus-visible {
+	outline-color: rgba(#07f, 0.6);
+}
+
+body {
+	margin: 0;
+}
+
+
+body > :is(header, main, footer) {
+	width        : min(94vw, 48rem);
+	margin-inline: auto;
+}
+
+// Margin ----------------------------------------------------------------------
+
+:where(
+	blockquote, pre,
+	figure,
+	ul, ol, dl,
+	table, hr
+) {
+	margin-block: 2rem;
+}
+
+:where(p, div, details),
+:where(ul, ol, dl) :where(ul, ol, dl) {
+	margin-block: 1rem;
+}
+
+summary + * {
+	margin-block-start: 1rem;
+}
+
+// ----
+
+h1 { margin-block: 3.50rem 3.00rem; }
+h2 { margin-block: 3.00rem 2.50rem; }
+h3 { margin-block: 2.50rem 2.00rem; }
+h4 { margin-block: 2.00rem 1.50rem; }
+h5 { margin-block: 1.50rem 1.25rem; }
+h6 { margin-block: 1.25rem 1.00rem; }
+
+hgroup p { margin-block: 0.5rem; }
+
+hgroup :is(h1, h2, h3, h4, h5, h6):first-child {
+	margin-block-end: 0;
+}
+
+hgroup p:last-child {
+	margin-block-end: 2rem;
+}
+
+hgroup p:first-child {
+	margin-block-start: 2rem;
+}
+
+hgroup :is(h1, h2, h3, h4, h5, h6):last-child {
+	margin-block-start: 0;
+}
+
+// ----
+
+:where(li, dt) {
+	margin-block: 0.75rem;
+}
+
+dt + dd {
+	margin-block-start: -0.75rem;
+}
+
+nav li {
+	margin-block: 0;
+}
+
+// ----
+
+td p {
+	margin-block: 0;
+}
+
+td p + p {
+	margin-block-start: 0.5rem;
+}
+
+// ----
+
+figcaption {
+	margin-block: 0.75rem;
+}
+
+caption {
+	padding-block-end: 0.75rem;  // Must use 'padding-block-end'
+}
+
+// Font and Line ---------------------------------------------------------------
+
+:root {
+	font-family: system-ui, -apple-system, sans-serif;
+}
+
+* {
+	font-family: inherit;
+}
+
+:where(input[type='file' i])::file-selector-button {
+	font-family: inherit;
+}
+
+:where(pre, code, samp, kbd) {
+	font-family: Consolas, ui-monospace, monospace;
+}
+
+// ----
+
+:root {
+	line-height: calc(1em + 0.75rem);
+}
+
+:where(
+	li, td, th,
+	caption, figcaption,
+	label, legend,
+	h1, h2, h3, h4, h5, h6
+) {
+	line-height: calc(1em + 0.5rem);
+}
+
+:where(sub, sup) {
+	line-height: 1;
+}
+
+:where(input, button, select, textarea, [role='button']),
+:where(input[type='file' i])::file-selector-button {
+	line-height: 1.15;
+}
+
+// ----
+
+:root {
+	--font-size-unit: 0.125rem;
+	@media screen and (min-width: 600px) { --font-size-unit: 0.1875rem; }
+	@media screen and (min-width: 900px) { --font-size-unit: 0.25rem; }
+}
+
+h1 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 6); }
+h2 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 5); }
+h3 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 4); }
+h4 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 3); }
+h5 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 2); }
+h6 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 1); }
+
+:where(small, caption, figcaption) {
+	font-size: 87.5%;
+}
+
+:where(input, button, select, textarea, [role='button']),
+:where(input[type='file' i])::file-selector-button {
+	font-size: 87.5%;
+}
+
+// -----------------------------------------------------------------------------
+
+:root {
+	overflow-wrap: break-word;
+}
+
+:is(
+	p, div,
+	h1, h2, h3, h4, h5, h6
+) {
+	hyphens: auto;
+}
+
+:is(
+	table,
+	h1, h2, h3, h4, h5, h6
+	li, td, th,
+	caption, figcaption,
+	label, legend
+) {
+	font-feature-settings: 'pkna' 1;
+}
+
+// -----------------------------------------------------------------------------
+
+a:where([href^='http'], [href^='https'])::after {
+	content: '↗';
+	font-family: Arial, 'BIZ UDPGothic';
+
+	display            : inline-block;
+	margin-inline-start: 0.25em;
+	// margin-inline-start: 0;
+
+	// width         : 1em;
+	// height        : 1em;
+	// font-size     : 100%;
+	line-height   : 1;
+	// vertical-align: -15%;
+	font-size  : 70%;
+
+	// background-color: currentColor;
+	// clip-path       : polygon(6% 50%, 50% 94%, 66% 78%, 58% 70%, 50% 78%, 22% 50%, 43% 50%, 43% 57%, 72% 57%, 70% 72%, 96% 50%, 70% 28%, 72% 43%, 43% 43%, 43% 50%, 22% 50%, 50% 22%, 58% 30%, 66% 22%, 50% 6%);
+
+	-webkit-print-color-adjust: exact;
+	print-color-adjust        : exact;  // For print
+}
+
+a:where(
+	[href$='.doc'i], [href$='.docx'i],
+	[href$='.xls'i], [href$='.xlsx'i],
+	[href$='.ppt'i], [href$='.pptx'i],
+	[href$='.pdf'i],
+	[href$='.zip'i]
+)::after {
+	text-transform: uppercase;
+	font-family: inherit;
+	font-weight: bold;
+
+	display            : inline-block;
+	// align-items        : center;
+	margin-inline-start: 0.25em;
+	vertical-align: baseline;
+	text-decoration: none;
+
+	// width      : auto;
+	// height     : calc(1em + 2px);
+	// padding    : 0 3px;
+	font-size  : 70%;
+	// line-height: 0;
+
+	// -webkit-text-fill-color: Canvas;
+	// background-color       : currentColor;
+	background-color       : transparent;
+	clip-path              : none;
+
+	// -webkit-print-color-adjust: exact;
+	// print-color-adjust        : exact;  // For print
+}
+
+a:is([href$='.doc'i], [href$='.docx'i])::after { content: '[doc]'; }
+a:is([href$='.xls'i], [href$='.xlsx'i])::after { content: '[xls]'; }
+a:is([href$='.ppt'i], [href$='.pptx'i])::after { content: '[ppt]'; }
+a[href$='.pdf'i]::after { content: '[pdf]'; }
+a[href$='.zip'i]::after { content: '[zip]'; }
+
+// -----------------------------------------------------------------------------
+
+:is(ul, ol) {
+	padding-inline-start: clamp(2rem, calc((100% - 36rem) * 9999), 3rem);
+}
+
+dd {
+	margin-inline-start: clamp(2rem, calc((100% - 36rem) * 9999), 3rem);
+}
+
+li::marker, dt {
+	color      : #aaa;
+	font-weight: bold;
+}
+
+nav ul {
+	padding-inline-start: 0;
+	list-style-type     : none;
+}
+
+// -----------------------------------------------------------------------------
+
+table {
+	border-collapse: collapse;
+
+	display   : block;
+	overflow-x: auto;
+}
+
+:is(thead, tbody, tfoot) {
+	border-block: #ddd 1px solid;
+}
+
+:is(td, th) {
+	border-block: #ddd 1px solid;
+}
+
+:is(td, th) {
+	&:where(:not(:first-child)) {
+		border-inline-start: #ddd 1px solid;
+	}
+	&:where(:first-child[rowspan]) {
+		border-inline-end: #ddd 1px solid;
+	}
+}
+
+:is(td, th) {
+	padding: 0.25rem 0.5rem;
+
+	text-align    : start;
+	vertical-align: top;
+}
+
+:is(thead td, th) {
+	background-color: #eee;
+	font-weight     : bold;
+}
+
+td {
+	p {
+		text-align: unset;
+	}
+}
+
+caption {
+	text-align: left;
+
+	margin-inline  : auto;
+	max-inline-size: max-content;
+	width          : 90%;
+}
+
+// -----------------------------------------------------------------------------
+
+:is(strong, b) {
+	font-weight: bold;  // For Firefox.
+}
+
+:is(cite, dfn) {
+	font-style: italic
+}
+
+cite a {
+	text-decoration: none;
+}
+
+:is(u, ins) {  // Fix underline.
+	-webkit-text-decoration: underline solid rgb(0 204 0 / 0.65);  // For Safari.
+	text-decoration: underline solid rgb(0 204 0 / 0.65);
+	text-decoration-thickness: 2px;  // For Safari.
+}
+
+:is(s, strike, del) {
+	-webkit-text-decoration  : line-through solid rgb(255 68 0 / 0.65);  // For Safari.
+	text-decoration          : line-through solid rgb(255 68 0 / 0.65);
+	text-decoration-thickness: 2px;  // For Safari.
+}
+
+:is(code, kbd, samp, var) {
+	margin-inline: 0.05em;
+}
+
+:is(sub, sup) {
+	position      : relative;
+	display       : inline-block;  // For neat line height in Safari.
+	vertical-align: baseline;
+	margin-inline : 0.0625em;
+}
+
+sub {
+	inset-block-end : -0.25em;
+}
+
+sup {
+	inset-block-start : -0.75em;
+}
+
+mark {
+	background-color: rgb(238 238 0 / 0.65);
+	outline         : 2px solid rgb(238 238 0 / 0.65);
+	color           : #000;
+}
+
+abbr[title] {
+	-webkit-text-decoration  : underline dotted;  // For Safari.
+	text-decoration          : underline dotted;
+	text-decoration-thickness: 2px;  // For Safari.
+	cursor: help;
+}
+
+rt {
+	transform: translateY(0.125em);
+}
+
+:is(img, iframe) {
+	break-inside: avoid;
+}
+
+details[open] {
+	position: relative;
+	z-index : 0;
+
+	&::before {
+		content : '';
+		position: absolute;
+		inset   : 2rem auto 0 0;
+		z-index : -1;
+
+		border-inline-start: 0.75rem solid #eee;
+	}
+}
+
+summary {
+	display    : list-item;
+	cursor     : pointer;
+	user-select: none;
+}
+
+// -----------------------------------------------------------------------------
+
+hr {
+	border            : none;  // For reset
+	border-block-start: 2px solid #aaa;
+}
+
+blockquote {
+	margin-inline       : 0;
+	padding-inline-start: clamp(2rem, calc((100% - 36rem) * 9999), 3rem);
+
+	position: relative;
+	&::before {
+		content: '';
+
+		position: absolute;
+		inset   : 0 auto 0 0;
+
+		border-inline-end: 2px solid #aaa;
+
+		width: clamp(1.35rem, calc((100% - 36rem) * 9999), 2.35rem);
+	}
+
+	font-style: normal;
+
+	> cite {
+		display   : block;
+		text-align: start;
+	}
+}
+
+pre {
+	overflow-x : auto;
+
+	background-color: rgba(192 192 192 / 0.25);
+	padding         : 1.75rem 2rem;
+
+	> code {
+		background-color: transparent;
+		white-space     : pre;
+	}
+}
+
+address {  // Fix italic.
+	font-style: normal;
+}
+
+:is(img, picture, svg, video, canvas, iframe, embed, object, audio) {
+	max-width     : 100%;
+	vertical-align: middle;
+}
+
+:is(img, picture, svg, video, canvas) {
+	height: auto;
+}
+
+:is(iframe) {
+	border: 0;
+}
+
+:is(h1, h2, h3, h4, h5, h6) {
+	break-after: avoid;
+
+	> small {
+		display: block;
+	}
+}
+
+figure {
+	margin-inline: 0;
+	max-width    : 100%;
+
+	:is(img, picture, iframe) {
+		display      : grid;
+		margin-inline: auto;
+	}
+
+	> a {
+		display: contents;
+	}
+}
+
+figcaption {
+	text-align: left;
+
+	margin-inline  : auto;
+	max-inline-size: max-content;
+	width          : 90%;
+}
+
+// -----------------------------------------------------------------------------
+
+:where(input, button, select, textarea, [role='button']),
+:where(input[type='file' i])::file-selector-button {
+	color        : inherit;
+	border-radius: 0;  // For Safari
+}
+
+:where(input, button, select, textarea, [role='button']):where(:disabled, [disabled]) {
+	cursor : not-allowed;
+	opacity: 0.5;
+}
+
+:where(input, button, select, textarea)::placeholder {
+	color: #aaa;
+}
+
+:where(button, input[type='submit' i], input[type='button' i], input[type='reset' i], [role='button']),
+:where(input[type='file' i])::file-selector-button {
+	appearance: none;
+
+	background-color: #ddd;
+	border          : 1px solid transparent;
+
+	padding: 0.5em 1em;
+
+	display    : inline-grid;
+	place-items: center;
+
+	cursor     : pointer;
+	user-select: none;
+}
+
+:where([role='button']) {
+	text-decoration: none;
+}
+
+:where([type='submit' i]) {
+	font-weight: normal;  // For Safari
+}
+
+:where(select) {
+	background-color: Canvas;
+	border          : 1px solid #aaa;
+
+	padding: 0.5em;
+}
+
+:where(optgroup) {
+	font-style: normal;
+}
+
+:where(option) {
+	min-height: unset;
+	line-height: 1;
+}
+
+:where(textarea) {
+	vertical-align: top;
+}
+
+:where(
+	input[type='text' i],
+	input[type='password' i],
+	input[type='url' i],
+	input[type='email' i],
+	input[type='tel' i],
+	input[type='search' i],
+	input[type='number' i],
+	input[type='date' i],
+	input[type='month' i],
+	input[type='week' i],
+	input[type='datetime' i],
+	input[type='datetime-local' i],
+	textarea
+) {
+	appearance: none;
+
+	background-color: Canvas;
+	border          : 1px solid #aaa;
+
+	padding: 0.5em;
+}
+
+:where(input[type='color' i]) {
+	appearance: none;
+
+	background-color: Canvas;
+	border          : 1px solid #aaa;
+
+	height        : 2rem;
+	min-width     : 3rem;
+	padding       : 0.25rem;
+	vertical-align: middle;
+}
+
+:where(input[type='file' i]) {
+	appearance: none;
+
+	&:focus-visible::file-selector-button {
+		box-shadow: none;
+	}
+}
+
+:where(input[type='range' i]) {
+	vertical-align: middle;
+	padding-block : 0.25rem;
+
+	@supports (font: -apple-system-body) {
+		&:disabled {
+			opacity: 0.5;
+		}
+	}
+}
+
+:where(input[type='radio' i], input[type='checkbox' i]) {
+	margin: 0;
+	cursor: pointer;
+
+	width : 1em;
+	height: 1em;
+
+	accent-color: #06c;
+
+	translate: 0 -0.1em; // For Firefox
+	@supports (translate: 1lh) {
+		translate: 0 calc((1em - 1lh) / 2);
+	}
+	vertical-align: middle;
+}
+
+:where(fieldset) {
+	padding: 0.5em 1em 1em;
+
+	border: 1px solid #aaa;
+}

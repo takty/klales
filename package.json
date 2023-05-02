@@ -1,0 +1,29 @@
+{
+	"name": "jacss",
+	"version": "1.0.0",
+	"description": "A Class-Less CSS Library",
+	"license": "MIT",
+	"author": "Takuto Yanagida",
+	"homepage": "https://github.com/takty/jacss#readme",
+	"keywords": [
+		"css",
+		"html",
+		"style"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/takty/jacss.git"
+	},
+	"bugs": {
+		"url": "https://github.com/takty/jacss/issues"
+	},
+	"scripts": {
+		"build": "sass --no-source-map --style compressed src/main.scss dist/jacss.min.css",
+		"docs": "parcel src/_docs/*.html --dist-dir docs  --public-url /jacss/"
+	},
+	"devDependencies": {
+		"@parcel/transformer-sass": "2.8.3",
+		"parcel": "^2.8.3",
+		"sass": "^1.62.0"
+	}
+}
