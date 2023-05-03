@@ -519,10 +519,17 @@ figcaption {
 }
 
 :where(select) {
+	appearance: none;
+
 	background-color: Canvas;
 	border          : 1px solid #aaa;
 
-	padding: 0.5em;
+	padding           : 0.5em;
+	padding-inline-end: 1.5em;
+
+	background-image   : conic-gradient(from -45deg at 50% 100%, CurrentColor 90deg, transparent 90deg);
+	background-position: calc(100% - 0.25em);
+	background-size    : 0.6em 0.25em;
 }
 
 :where(optgroup) {
