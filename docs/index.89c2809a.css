@@ -169,11 +169,11 @@ h6 {
 }
 
 :where(small, caption, figcaption) {
-  font-size: 87.5%;
+  font-size: .875rem;
 }
 
 :where(input, button, select, textarea, [role="button"]), :where(input[type="file" i])::file-selector-button {
-  font-size: 87.5%;
+  font-size: .875rem;
 }
 
 :root {
@@ -189,48 +189,42 @@ h6 {
   font-feature-settings: "pkna" 1;
 }
 
-a:where([href^="http"], [href^="https"]):after {
-  content: "↗";
-  -webkit-print-color-adjust: exact;
-  print-color-adjust: exact;
+a:where([href^="http" i], [href^="https" i], [href$=".doc" i], [href$=".docx" i], [href$=".xls" i], [href$=".xlsx" i], [href$=".ppt" i], [href$=".pptx" i], [href$=".pdf" i], [href$=".zip" i]):after {
   margin-inline-start: .25em;
-  font-family: Arial, BIZ UDPGothic;
-  font-size: 70%;
+  font-weight: bold;
   line-height: 1;
   display: inline-block;
 }
 
+a:where([href^="http"], [href^="https"]):after {
+  content: "↗";
+  font-family: Calibri, system-ui;
+  font-size: 85%;
+}
+
 a:where([href$=".doc" i], [href$=".docx" i], [href$=".xls" i], [href$=".xlsx" i], [href$=".ppt" i], [href$=".pptx" i], [href$=".pdf" i], [href$=".zip" i]):after {
-  text-transform: uppercase;
-  vertical-align: baseline;
-  clip-path: none;
-  background-color: #0000;
-  margin-inline-start: .25em;
   font-family: inherit;
-  font-size: 70%;
-  font-weight: bold;
-  text-decoration: none;
-  display: inline-block;
+  font-size: 75%;
 }
 
 a:is([href$=".doc" i], [href$=".docx" i]):after {
-  content: "[doc]";
+  content: "[DOC]";
 }
 
 a:is([href$=".xls" i], [href$=".xlsx" i]):after {
-  content: "[xls]";
+  content: "[XLS]";
 }
 
 a:is([href$=".ppt" i], [href$=".pptx" i]):after {
-  content: "[ppt]";
+  content: "[PPT]";
 }
 
 a[href$=".pdf" i]:after {
-  content: "[pdf]";
+  content: "[PDF]";
 }
 
 a[href$=".zip" i]:after {
-  content: "[zip]";
+  content: "[ZIP]";
 }
 
 :is(ul, ol) {
@@ -492,9 +486,14 @@ figcaption {
 }
 
 :where(select) {
+  appearance: none;
   background-color: Canvas;
+  background-image: conic-gradient(from -45deg at 50% 100%, currentColor 90deg, #0000 90deg);
+  background-position: calc(100% - .25em);
+  background-size: .6em .25em;
   border: 1px solid #aaa;
   padding: .5em;
+  padding-inline-end: 1.5em;
 }
 
 :where(optgroup) {
