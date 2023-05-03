@@ -158,12 +158,12 @@ h5 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 2); }
 h6 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 1); }
 
 :where(small, caption, figcaption) {
-	font-size: 87.5%;
+	font-size: 0.875rem;
 }
 
 :where(input, button, select, textarea, [role='button']),
 :where(input[type='file' i])::file-selector-button {
-	font-size: 87.5%;
+	font-size: 0.875rem;
 }
 
 // -----------------------------------------------------------------------------
