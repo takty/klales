@@ -179,13 +179,14 @@ h6 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 1); }
 	hyphens: auto;
 }
 
-:is(
+:where(
 	table,
 	h1, h2, h3, h4, h5, h6
 	li, td, th,
 	caption, figcaption,
-	label, legend
-) {
+	label, legend,
+	button, input, select, textarea, [role='button']
+), :where(input[type='file' i])::file-selector-button {
 	font-feature-settings: 'pkna' 1;
 }
 
@@ -485,11 +486,6 @@ figcaption {
 	border-radius: 0;  // For Safari
 }
 
-:where(button, input, select, textarea, [role='button']):where(:disabled, [disabled]) {
-	cursor : not-allowed;
-	opacity: 0.5;
-}
-
 :where(button, input, select, textarea)::placeholder {
 	color: #aaa;
 }
@@ -508,8 +504,7 @@ figcaption {
 	input[type='button' i],
 	input[type='reset' i],
 	[role='button']
-),
-:where(input[type='file' i])::file-selector-button {
+) {
 	appearance: none;
 
 	background-color: #ddd;
@@ -520,11 +515,11 @@ figcaption {
 	display    : inline-grid;
 	place-items: center;
 
-	cursor     : pointer;
-	user-select: none;
+	cursor: pointer;
 }
 
 :where([role='button']) {
+	user-select    : none;
 	text-decoration: none;
 }
 
@@ -566,8 +561,9 @@ figcaption {
 	background-color: Canvas;
 	border          : 1px solid #aaa;
 
-	height        : 2rem;
 	min-width     : 3rem;
+	min-height    : 2rem;
+
 	padding       : 0.25rem;
 	vertical-align: middle;
 }
@@ -575,8 +571,19 @@ figcaption {
 :where(input[type='file' i]) {
 	appearance: none;
 
-	&:focus-visible::file-selector-button {
-		box-shadow: none;
+	background-color: Canvas;
+	border          : 1px solid #aaa;
+
+	display: inline-grid;
+
+	padding           : 2px;
+	padding-inline-end: 0.5em;
+
+	&::file-selector-button {
+		background-color: #ddd;
+		border          : 1px solid transparent;
+
+		padding: calc(0.5em - 2px) 0.5em;
 	}
 }
 
@@ -628,4 +635,12 @@ figcaption {
 
 :where(textarea) {
 	vertical-align: top;
+}
+
+// -----------------------------------------------------------------------------
+
+:where(button, input, select, textarea, [role='button']):where(:disabled, [disabled]),
+:where(input[type='file' i]):where(:disabled, [disabled])::file-selector-button {
+	cursor : not-allowed;
+	opacity: 0.5;
 }
