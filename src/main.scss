@@ -479,22 +479,36 @@ figcaption {
 
 // -----------------------------------------------------------------------------
 
-:where(input, button, select, textarea, [role='button']),
+:where(button, input, select, textarea, [role='button']),
 :where(input[type='file' i])::file-selector-button {
 	color        : inherit;
 	border-radius: 0;  // For Safari
 }
 
-:where(input, button, select, textarea, [role='button']):where(:disabled, [disabled]) {
+:where(button, input, select, textarea, [role='button']):where(:disabled, [disabled]) {
 	cursor : not-allowed;
 	opacity: 0.5;
 }
 
-:where(input, button, select, textarea)::placeholder {
+:where(button, input, select, textarea)::placeholder {
 	color: #aaa;
 }
 
-:where(button, input[type='submit' i], input[type='button' i], input[type='reset' i], [role='button']),
+:where(fieldset) {
+	padding: 0.5em 1em 1em;
+
+	border: 1px solid #aaa;
+}
+
+// ----
+
+:where(
+	button,
+	input[type='submit' i],
+	input[type='button' i],
+	input[type='reset' i],
+	[role='button']
+),
 :where(input[type='file' i])::file-selector-button {
 	appearance: none;
 
@@ -518,32 +532,7 @@ figcaption {
 	font-weight: normal;  // For Safari
 }
 
-:where(select) {
-	appearance: none;
-
-	background-color: Canvas;
-	border          : 1px solid #aaa;
-
-	padding           : 0.5em;
-	padding-inline-end: 1.5em;
-
-	background-image   : conic-gradient(from -45deg at 50% 100%, CurrentColor 90deg, transparent 90deg);
-	background-position: calc(100% - 0.25em);
-	background-size    : 0.6em 0.25em;
-}
-
-:where(optgroup) {
-	font-style: normal;
-}
-
-:where(option) {
-	min-height: unset;
-	line-height: 1;
-}
-
-:where(textarea) {
-	vertical-align: top;
-}
+// ----
 
 :where(
 	input[type='text' i],
@@ -558,6 +547,7 @@ figcaption {
 	input[type='week' i],
 	input[type='datetime' i],
 	input[type='datetime-local' i],
+	select,
 	textarea
 ) {
 	appearance: none;
@@ -567,6 +557,8 @@ figcaption {
 
 	padding: 0.5em;
 }
+
+// ----
 
 :where(input[type='color' i]) {
 	appearance: none;
@@ -615,8 +607,25 @@ figcaption {
 	vertical-align: middle;
 }
 
-:where(fieldset) {
-	padding: 0.5em 1em 1em;
+// ----
 
-	border: 1px solid #aaa;
+:where(select) {
+	padding-inline-end: 1.5em;
+
+	background-image   : conic-gradient(from -45deg at 50% 100%, CurrentColor 90deg, transparent 90deg);
+	background-position: calc(100% - 0.25em);
+	background-size    : 0.6em 0.25em;
+}
+
+:where(optgroup) {
+	font-style: normal;
+}
+
+:where(option) {
+	min-height : unset;
+	line-height: 1;
+}
+
+:where(textarea) {
+	vertical-align: top;
 }
