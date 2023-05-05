@@ -5,11 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../../main.scss">
 <title>Form Elements</title>
+<script>
+function disable() {
+	const es = document.querySelectorAll('input, button, select, textarea, .button, [class^="form"]');
+	for (const e of es) e.setAttribute('disabled', '');
+}
+</script>
 </head>
 
 <body>
 	<header role="banner">
 		<h1><a href="../index.html">Form Elements</a></h1>
+		<div><button onclick="disable();">Disable All</button></div>
 	</header>
 
 	<main role="main" class="content">
