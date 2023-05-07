@@ -5,6 +5,32 @@
 	background-repeat: no-repeat;
 }
 
+* {
+	font-family: inherit;
+}
+
+:root {
+	--margin-block-large : 2rem;
+	--margin-block-medium: 1rem;
+	--margin-block-small : 0.75rem;
+
+	--font-size-unit: 0.125rem;
+	@media screen and (600px <= width) { --font-size-unit: 0.1875rem; }
+	@media screen and (900px <= width) { --font-size-unit: 0.25rem; }
+}
+
+:where(html) {
+	font-family  : system-ui, -apple-system, sans-serif;
+	overflow-wrap: break-word;
+
+	line-height: calc(1em + 0.75rem);
+	tab-size   : 4;
+}
+
+:where(html:focus-within) {
+	scroll-behavior: smooth;
+}
+
 :where(body) {
 	margin: 0;
 }
@@ -14,19 +40,21 @@
 	margin-inline: auto;
 }
 
+
 // =============================================================================
 
+
 :where(ul, ol, dl, blockquote, pre, figure, table, hr) {
-	margin-block: 2rem;
+	margin-block: var(--margin-block-large);
 }
 
 :where(p, details),
 :where(ul, ol, dl) :where(ul, ol, dl) {
-	margin-block: 1rem;
+	margin-block: var(--margin-block-medium);
 }
 
-:where(summary + *) {
-	margin-block-start: 1rem;
+:where(summary) {
+	margin-block-end: var(--margin-block-medium);
 }
 
 :where(h1, hgroup:has(h1)) { margin-block: 3.50rem 3.00rem; }
@@ -40,65 +68,43 @@
 	margin-block: 0;
 }
 
-:where(hgroup * + *) {
-	margin-block-start: 0.5rem;
-}
-
 :where(li, dt) {
-	margin-block: 0.75rem;
+	margin-block: var(--margin-block-small);
 }
 
 :where(dt + dd) {
-	margin-block-start: -0.75rem;
+	margin-block-start: calc(-1 * var(--margin-block-small));
 }
 
 :where(nav li) {
 	margin-block: 0;
 }
 
-:where(td p) {
-	margin-block: 0;
-}
-
-:where(td p + p) {
-	margin-block-start: 0.5rem;
-}
-
 :where(figcaption) {
-	margin-block: 0.75rem;
+	margin-block: var(--margin-block-small);
 }
 
 :where(caption) {
-	padding-block-end: 0.75rem;  // Must use 'padding-block-end'
+	padding-block-end: var(--margin-block-small);  // Must use 'padding-block-end'
 }
+
 
 // =============================================================================
 
-*,
-::file-selector-button {
-	font-family: inherit;
-}
-
-:root {
-	font-family: system-ui, -apple-system, sans-serif;
-	line-height: calc(1em + 0.75rem);
-
-	--font-size-unit: 0.125rem;
-	@media screen and (600px <= width) { --font-size-unit: 0.1875rem; }
-	@media screen and (900px <= width) { --font-size-unit: 0.25rem; }
-}
 
 :where(pre, code, samp, kbd) {
 	font-family: Consolas, ui-monospace, monospace;
 }
 
 :where(
-	li, td, th,
+	h1, h2, h3, h4, h5, h6,
+	li, dt, dd, td, th,
 	caption, figcaption,
-	label, legend,
-	h1, h2, h3, h4, h5, h6
+	label, legend
 ) {
 	line-height: calc(1em + 0.5rem);
+
+	font-feature-settings: 'pkna' 1;
 }
 
 :where(sub, sup, option) {
@@ -116,35 +122,20 @@ h6 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 1); }
 	font-size: 0.875rem;
 }
 
-// =============================================================================
-
-:root {
-	overflow-wrap: break-word;
-}
-
 :where(p, h1, h2, h3, h4, h5, h6) {
 	hyphens: auto;
 }
 
-:where(
-	h1, h2, h3, h4, h5, h6
-	li, td, th,
-	caption, figcaption,
-	label, legend
-) {
-	font-feature-settings: 'pkna' 1;
-}
 
 // =============================================================================
 
-:where(
-	a:is(
-		[href^='http'i], [href^='https'i],
-		[href$='.doc'i], [href$='.docx'i],
-		[href$='.xls'i], [href$='.xlsx'i],
-		[href$='.ppt'i], [href$='.pptx'i],
-		[href$='.pdf'i], [href$='.zip'i]
-	)
+
+:where(a):where(
+	[href*='://'],
+	[href$='.doc'i], [href$='.docx'i],
+	[href$='.xls'i], [href$='.xlsx'i],
+	[href$='.ppt'i], [href$='.pptx'i],
+	[href$='.pdf'i], [href$='.zip'i]
 )::after {
 	display            : inline-block;
 	margin-inline-start: 0.25em;
@@ -153,19 +144,17 @@ h6 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 1); }
 	line-height: 1;
 }
 
-:where(a:is([href^='http'], [href^='https']))::after {
+:where(a[href*='://'])::after {
 	content    : '↗';
 	font-family: Calibri, system-ui;
 	font-size  : 85%;
 }
 
-:where(
-	a:is(
-		[href$='.doc'i], [href$='.docx'i],
-		[href$='.xls'i], [href$='.xlsx'i],
-		[href$='.ppt'i], [href$='.pptx'i],
-		[href$='.pdf'i], [href$='.zip'i]
-	)
+:where(a):where(
+	[href$='.doc'i], [href$='.docx'i],
+	[href$='.xls'i], [href$='.xlsx'i],
+	[href$='.ppt'i], [href$='.pptx'i],
+	[href$='.pdf'i], [href$='.zip'i]
 )::after {
 	font-family: inherit;
 	font-size  : 75%;
@@ -177,7 +166,9 @@ h6 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 1); }
 :where(a[href$='.pdf'i])::after { content: '[PDF]'; }
 :where(a[href$='.zip'i])::after { content: '[ZIP]'; }
 
+
 // =============================================================================
+
 
 :where(ul, ol) {
 	padding-inline-start: clamp(2rem, calc((100% - 36rem) * 9999), 3rem);
@@ -198,7 +189,9 @@ h6 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 1); }
 	list-style-type     : none;
 }
 
+
 // =============================================================================
+
 
 :where(strong, b) {
 	font-weight: bold;  // For Firefox.
@@ -260,7 +253,9 @@ h6 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 1); }
 	transform: translateY(0.125em);
 }
 
+
 // =============================================================================
+
 
 :where(hr) {
 	border            : none;  // For reset
@@ -271,24 +266,25 @@ h6 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 1); }
 	margin-inline       : 0;
 	padding-inline-start: clamp(2rem, calc((100% - 36rem) * 9999), 3rem);
 
-	position: relative;
-	&::before {
-		content: '';
-
-		position: absolute;
-		inset   : 0 auto 0 0;
-
-		border-inline-end: 2px solid #aaa;
-
-		width: clamp(1.35rem, calc((100% - 36rem) * 9999), 2.35rem);
-	}
-
 	font-style: normal;
 
-	> cite {
-		display   : block;
-		text-align: start;
-	}
+	position: relative;
+}
+
+:where(blockquote)::before {
+	content: '';
+
+	position: absolute;
+	inset   : 0 auto 0 0;
+
+	border-inline-end: 2px solid #aaa;
+
+	width: clamp(1.35rem, calc((100% - 36rem) * 9999), 2.35rem);
+}
+
+:where(blockquote > cite) {
+	display   : block;
+	text-align: start;
 }
 
 :where(pre) {
@@ -296,11 +292,11 @@ h6 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 1); }
 
 	background-color: rgba(192 192 192 / 0.25);
 	padding         : 1.75rem 2rem;
+}
 
-	> code {
-		background-color: transparent;
-		white-space     : pre;
-	}
+:where(pre > code) {
+	background-color: transparent;
+	white-space     : pre;
 }
 
 :where(address) {  // Fix italic.
@@ -309,24 +305,24 @@ h6 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 1); }
 
 :where(h1, h2, h3, h4, h5, h6) {
 	break-after: avoid;
+}
 
-	> small {
-		display: block;
-	}
+:where(h1, h2, h3, h4, h5, h6) > :where(small) {
+	display: block;
 }
 
 :where(figure) {
 	margin-inline: 0;
 	max-width    : 100%;
+}
 
-	:is(img, picture, iframe) {
-		display      : grid;
-		margin-inline: auto;
-	}
+:where(figure) :where(img, picture, iframe) {
+	display      : grid;
+	margin-inline: auto;
+}
 
-	> a {
-		display: contents;
-	}
+:where(figure) > :where(a) {
+	display: contents;
 }
 
 :where(figcaption) {
@@ -337,7 +333,9 @@ h6 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 1); }
 	width          : 90%;
 }
 
+
 // =============================================================================
+
 
 :where(img, iframe) {
 	break-inside: avoid;
@@ -356,7 +354,9 @@ h6 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 1); }
 	border: 0;
 }
 
+
 // =============================================================================
+
 
 :where(table) {
 	border-collapse: collapse;
@@ -372,28 +372,35 @@ h6 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 1); }
 :where(td, th) {
 	border-block: #ddd 1px solid;
 
-	&:where(:not(:first-child)) {
-		border-inline-start: #ddd 1px solid;
-	}
-	&:where(:first-child[rowspan]) {
-		border-inline-end: #ddd 1px solid;
-	}
-}
-
-:where(td, th) {
 	padding: 0.5rem;
 
 	text-align    : start;
 	vertical-align: top;
+
+	--margin-block-large : 1rem;
+	--margin-block-medium: 0.5rem;
+	--margin-block-small : 0.5rem;
+}
+
+:where(td, th):where(:not(:first-child)) {
+	border-inline-start: #ddd 1px solid;
+}
+
+:where(td, th):where(:first-child[rowspan]) {
+	border-inline-end: #ddd 1px solid;
+}
+
+:where(td, th) > :first-child {
+	margin-block-start: 0;
+}
+
+:where(td, th) > :last-child {
+	margin-block-end: 0;
 }
 
 :where(thead td, th) {
 	background-color: #eee;
 	font-weight     : bold;
-}
-
-:where(td p) {
-	text-align: unset;
 }
 
 :where(caption) {
@@ -404,7 +411,9 @@ h6 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 1); }
 	width          : min(36rem, 100%);
 }
 
+
 // =============================================================================
+
 
 :where(button, input, select, textarea, [role='button']),
 ::file-selector-button {
@@ -427,6 +436,10 @@ h6 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 1); }
 	padding: 0.5em 1em 1em;
 
 	border: 1px solid #aaa;
+}
+
+:where(legend) {
+	padding-inline: 0.5em;
 }
 
 // ----
@@ -509,6 +522,8 @@ h6 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 1); }
 }
 
 ::file-selector-button {
+	font-family: inherit;
+
 	background-color: #ddd;
 	border          : 1px solid transparent;
 
@@ -520,13 +535,13 @@ h6 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 1); }
 	padding-block : 0.25rem;
 }
 
-:where(input:is([type='radio' i], [type='checkbox' i])) {
+:where(input):where([type='radio' i], [type='checkbox' i]) {
 	margin: 0;
 
 	width : 1em;
 	height: 1em;
 
-	translate: 0 -0.1em; // For Firefox
+	translate: 0 -0.1em;  // For Firefox
 	@supports (translate: 1lh) {
 		translate: 0 calc((1em - 1lh) / 2);
 	}
@@ -562,7 +577,9 @@ h6 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 1); }
 	opacity: 0.5;
 }
 
+
 // =============================================================================
+
 
 :where(details[open]) {
 	position: relative;
@@ -578,7 +595,7 @@ h6 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 1); }
 	border-inline-start: 0.75rem solid #eee;
 }
 
-summary {
+:where(summary) {
 	display    : list-item;
 	cursor     : pointer;
 	user-select: none;
@@ -586,4 +603,19 @@ summary {
 
 :focus-visible {
 	outline-color: rgba(#07f, 0.6);
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+	html:focus-within {
+		scroll-behavior: auto;
+	}
+	*,
+	::before,
+	::after {
+		animation-duration       : 0.01ms !important;
+		animation-iteration-count: 1      !important;
+		transition-duration      : 0.01ms !important;
+		scroll-behavior          : auto   !important;
+	}
 }
