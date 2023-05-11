@@ -294,7 +294,7 @@ h6 {
 }
 
 :where(pre) {
-  background-color: #c0c0c040;
+  background-color: #aaa3;
   padding: 1.75rem 2rem;
   overflow-x: auto;
 }
@@ -361,7 +361,7 @@ h6 {
 }
 
 :where(thead, tbody, tfoot) {
-  border-block: 1px solid #ddd;
+  border-block: 1px solid #aaa;
 }
 
 :where(td, th) {
@@ -370,16 +370,16 @@ h6 {
   --margin-block-large: 1rem;
   --margin-block-medium: .5rem;
   --margin-block-small: .5rem;
-  border-block: 1px solid #ddd;
+  border-block: 1px solid #aaa;
   padding: .5rem;
 }
 
 :where(td, th):where(:not(:first-child)) {
-  border-inline-start: 1px solid #ddd;
+  border-inline-start: 1px solid #aaa;
 }
 
 :where(td, th):where(:first-child[rowspan]) {
-  border-inline-end: 1px solid #ddd;
+  border-inline-end: 1px solid #aaa;
 }
 
 :where(td, th) > :first-child {
@@ -391,7 +391,7 @@ h6 {
 }
 
 :where(thead td, th) {
-  background-color: #eee;
+  background-color: #aaa3;
   font-weight: bold;
 }
 
@@ -427,7 +427,7 @@ h6 {
 
 :where(button, [role="button"]), :where(input:is([type="submit" i], [type="button" i], [type="reset" i])) {
   appearance: none;
-  background-color: #ddd;
+  background-color: #aaa;
   border: 1px solid #0000;
   place-items: center;
   padding: .5em 1em;
@@ -471,7 +471,7 @@ h6 {
 }
 
 ::file-selector-button {
-  background-color: #ddd;
+  background-color: #aaa;
   border: 1px solid #0000;
   padding: calc(.5em - 2px) .5em;
   font-family: inherit;
@@ -528,7 +528,7 @@ h6 {
 :where(details[open]):before {
   content: "";
   z-index: -1;
-  border-inline-start: .75rem solid #eee;
+  border-inline-start: .75rem solid #aaa3;
   position: absolute;
   inset: 2rem auto 0 0;
 }

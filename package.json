@@ -18,7 +18,7 @@
 		"url": "https://github.com/takty/klales/issues"
 	},
 	"scripts": {
-		"build": "sass --no-source-map --style compressed src/main.scss dist/klales.min.css",
+		"build": "sass --no-source-map --style compressed src/main.scss klales.min.css",
 		"docs": "parcel src/_docs/*.html --dist-dir docs  --public-url /klales/"
 	},
 	"devDependencies": {
