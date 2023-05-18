@@ -434,7 +434,7 @@ h6 {
   display: inline-grid;
 }
 
-:where(input[type="submit" i]) {
+:where(button[type="submit" i], input[type="submit" i]) {
   font-weight: normal;
 }
 
