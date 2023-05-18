@@ -427,7 +427,7 @@ h6 {
 
 :where(button, [role="button"]), :where(input:is([type="submit" i], [type="button" i], [type="reset" i])) {
   appearance: none;
-  background-color: #9999;
+  background-color: #9996;
   border: 1px solid #0000;
   place-items: center;
   padding: .5em 1em;
@@ -471,7 +471,7 @@ h6 {
 }
 
 ::file-selector-button {
-  background-color: #9999;
+  background-color: #9996;
   border: 1px solid #0000;
   padding: calc(.5em - 2px) .5em;
   font-family: inherit;
