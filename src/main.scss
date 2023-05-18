@@ -455,7 +455,7 @@ h6 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 1); }
 :where(input:is([type='submit' i], [type='button' i], [type='reset' i])) {
 	appearance: none;
 
-	background-color: #9999;
+	background-color: #9996;
 	border          : 1px solid transparent;
 
 	padding: 0.5em 1em;
@@ -531,7 +531,7 @@ h6 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 1); }
 ::file-selector-button {
 	font-family: inherit;
 
-	background-color: #9999;
+	background-color: #9996;
 	border          : 1px solid transparent;
 
 	padding: calc(0.5em - 2px) 0.5em;
