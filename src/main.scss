@@ -464,7 +464,7 @@ h6 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 1); }
 	place-items: center;
 }
 
-:where(input[type='submit' i]) {
+:where(button[type='submit' i], input[type='submit' i]) {
 	font-weight: normal;  // For Safari
 }
 
