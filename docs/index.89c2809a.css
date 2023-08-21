@@ -212,6 +212,10 @@ h6 {
   font-weight: bold;
 }
 
+:where(em, i) {
+  font-style: italic;
+}
+
 :where(cite, dfn) {
   font-style: italic;
 }
@@ -220,16 +224,25 @@ h6 {
   text-decoration: none;
 }
 
-:where(u, ins) {
-  -webkit-text-decoration: underline #00cc00a6;
-  text-decoration: underline #00cc00a6;
+:where(ins) {
+  -webkit-text-decoration: underline #0c0a;
+  text-decoration: underline #0c0a;
   text-decoration-thickness: 2px;
 }
 
-:where(s, strike, del) {
-  -webkit-text-decoration: line-through #ff4400a6;
-  text-decoration: line-through #ff4400a6;
+:where(u) {
+  -webkit-text-decoration: underline wavy;
+  text-decoration: underline wavy;
+}
+
+:where(del) {
+  -webkit-text-decoration: line-through #f40a;
+  text-decoration: line-through #f40a;
   text-decoration-thickness: 2px;
+}
+
+:where(s) {
+  opacity: .35;
 }
 
 :where(code, kbd, samp, var) {
@@ -253,8 +266,8 @@ h6 {
 
 :where(mark) {
   color: #000;
-  background-color: #eeee00a6;
-  outline: 2px solid #eeee00a6;
+  background-color: #ee0a;
+  outline: 2px solid #ee0a;
 }
 
 :where(abbr[title]) {
@@ -538,7 +551,7 @@ h6 {
 }
 
 :focus-visible {
-  outline-color: #07f9;
+  outline-color: #07fa;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -552,6 +565,30 @@ h6 {
     animation-duration: .01ms !important;
     animation-iteration-count: 1 !important;
   }
+}
+
+:where(:lang(ja)):where(cite, dfn) {
+  font-style: normal;
+}
+
+:where(:lang(ja)):where(cite, dfn):before {
+  content: open-quote;
+}
+
+:where(:lang(ja)):where(cite, dfn):after {
+  content: close-quote;
+}
+
+:where(:lang(ja)):where(cite) {
+  quotes: "『" "』";
+}
+
+:where(:lang(ja)):where(dfn) {
+  quotes: "「" "」";
+}
+
+:where(:lang(ja)):where(q) {
+  quotes: "「" "」";
 }
 
 /*# sourceMappingURL=index.89c2809a.css.map */
