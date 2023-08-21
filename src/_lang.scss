@@ -1,0 +1,33 @@
+/**
+ * Language specific styles
+ *
+ * @author Takuto Yanagida
+ * @version 2023-08-21
+ */
+
+@mixin lang {
+	@include ja;
+}
+
+@mixin ja {
+	:where(:lang(ja)) {
+		&:where(cite, dfn) {
+			font-style: normal;
+
+			&::before { content: open-quote;  }
+			&::after  { content: close-quote; }
+		}
+
+		&:where(cite) {
+			quotes: '『' '』';
+		}
+
+		&:where(dfn) {
+			quotes: '「' '」';
+		}
+
+		&:where(q) {  // For Firefox.
+			quotes: '「' '」';
+		}
+	}
+}
