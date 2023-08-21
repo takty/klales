@@ -5,6 +5,8 @@
  * @version 2023-08-21
  */
 
+@use 'lang';
+
 *,
 ::before,
 ::after {
@@ -248,11 +250,11 @@ h6 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 1); }
 }
 
 :where(sub) {
-	inset-block-end : -0.25em;
+	inset-block-end: -0.25em;
 }
 
 :where(sup) {
-	inset-block-start : -0.75em;
+	inset-block-start: -0.75em;
 }
 
 :where(mark) {
@@ -265,6 +267,7 @@ h6 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 1); }
 			text-decoration          : underline dotted;
 	-webkit-text-decoration          : underline dotted;  // For Safari.
 			text-decoration-thickness: 2px;  // For Safari.
+
 	cursor: help;
 }
 
@@ -298,7 +301,7 @@ h6 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 1); }
 }
 
 :where(pre) {
-	overflow-x : auto;
+	overflow-x: auto;
 
 	background-color: #9993;
 	padding         : 1.75rem 2rem;
@@ -512,8 +515,8 @@ h6 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 1); }
 	background-color: Canvas;
 	border          : 1px solid #999;
 
-	min-width     : 3rem;
-	min-height    : 2rem;
+	min-width : 3rem;
+	min-height: 2rem;
 
 	padding       : 0.25rem;
 	vertical-align: middle;
@@ -633,3 +636,5 @@ h6 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 1); }
 		scroll-behavior          : auto   !important;
 	}
 }
+
+@include lang.lang;
