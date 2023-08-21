@@ -205,7 +205,8 @@ h6 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 1); }
 }
 
 :where(cite, dfn) {
-	font-style: italic
+	font-style: italic;
+}
 }
 
 :where(cite a) {
