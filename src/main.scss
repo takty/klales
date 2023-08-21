@@ -204,25 +204,36 @@ h6 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 1); }
 	font-weight: bold;  // For Firefox.
 }
 
-:where(cite, dfn) {
+:where(em, i) {
 	font-style: italic;
 }
+
+:where(cite, dfn) {
+	font-style: italic;
 }
 
 :where(cite a) {
 	text-decoration: none;
 }
 
-:where(u, ins) {  // Fix underline.
+:where(ins) {  // Fix underline.
 			text-decoration          : underline solid #0c0a;
 	-webkit-text-decoration          : underline solid #0c0a;  // For Safari.
-	text-decoration-thickness: 2px;  // For Safari.
+			text-decoration-thickness: 2px;  // For Safari.
 }
 
-:where(s, del) {
+:where(u) {
+	text-decoration: underline wavy;
+}
+
+:where(del) {
 			text-decoration          : line-through solid #f40a;
 	-webkit-text-decoration          : line-through solid #f40a;  // For Safari.
-	text-decoration-thickness: 2px;  // For Safari.
+			text-decoration-thickness: 2px;  // For Safari.
+}
+
+:where(s) {
+	opacity: 0.35;
 }
 
 :where(code, kbd, samp, var) {
@@ -253,7 +264,7 @@ h6 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 1); }
 :where(abbr[title]) {
 			text-decoration          : underline dotted;
 	-webkit-text-decoration          : underline dotted;  // For Safari.
-	text-decoration-thickness: 2px;  // For Safari.
+			text-decoration-thickness: 2px;  // For Safari.
 	cursor: help;
 }
 
