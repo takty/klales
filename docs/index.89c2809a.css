@@ -33,6 +33,13 @@
   line-height: calc(1em + .75rem);
 }
 
+@media (resolution >= 2dppx) {
+  :where(html) {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
 :where(html:focus-within) {
   scroll-behavior: smooth;
 }
