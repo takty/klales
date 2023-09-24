@@ -17,13 +17,17 @@
 	"bugs": {
 		"url": "https://github.com/takty/klales/issues"
 	},
+	"browserslist": [
+		"> 1%",
+		"last 2 versions",
+		"not dead"
+	],
 	"scripts": {
-		"build": "sass --no-source-map --style compressed src/main.scss klales.min.css",
+		"build": "parcel build src/klales.scss",
 		"docs": "parcel src/_docs/*.html --dist-dir docs  --public-url /klales/"
 	},
 	"devDependencies": {
 		"@parcel/transformer-sass": "2.9.3",
-		"parcel": "^2.9.3",
-		"sass": "^1.66.0"
+		"parcel": "^2.9.3"
 	}
 }
