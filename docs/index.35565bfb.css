@@ -391,7 +391,7 @@ h6 {
   border-inline-start: 1px solid #999;
 }
 
-:where(td, th):where(:first-child[rowspan]) {
+:where(td, th):where(:not(:last-child)) {
   border-inline-end: 1px solid #999;
 }
 
