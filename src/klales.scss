@@ -2,7 +2,7 @@
  * Klales
  *
  * @author Takuto Yanagida
- * @version 2023-09-02
+ * @version 2023-10-10
  */
 
 @use 'lang';
@@ -404,7 +404,7 @@ h6 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 1); }
 	border-inline-start: #999 1px solid;
 }
 
-:where(td, th):where(:first-child[rowspan]) {
+:where(td, th):where(:not(:last-child)) {
 	border-inline-end: #999 1px solid;
 }
 
