@@ -142,6 +142,91 @@
 						</tr>
 					</tbody>
 				</table>
+				<table>
+					<caption>Table with Rowspan</caption>
+					<tbody>
+						<tr>
+							<td rowspan="2">TC 1</td>
+							<td>TC 2</td>
+							<td>TC 3</td>
+							<td>TC 4</td>
+							<td rowspan="2">TC 5</td>
+							<td>TC 6</td>
+						</tr>
+						<tr>
+							<!-- <td>TC 1</td> -->
+							<td rowspan="2">TC 2</td>
+							<td>TC 3</td>
+							<td>TC 4</td>
+							<!-- <td>TC 5</td> -->
+							<td rowspan="2">TC 6</td>
+						</tr>
+						<tr>
+							<td>TC 1</td>
+							<!-- <td>TC 2</td> -->
+							<td rowspan="2">TC 3</td>
+							<td>TC 4</td>
+							<td>TC 5</td>
+							<!-- <td>TC 6</td> -->
+						</tr>
+						<tr>
+							<td>TC 1</td>
+							<td>TC 2</td>
+							<!-- <td>TC 3</td> -->
+							<td rowspan="2">TC 4</td>
+							<td>TC 5</td>
+							<td>TC 6</td>
+						</tr>
+						<tr>
+							<td>TC 1</td>
+							<td>TC 2</td>
+							<td>TC 3</td>
+							<!-- <td>TC 4</td> -->
+							<td>TC 5</td>
+							<td>TC 6</td>
+						</tr>
+					</tbody>
+				</table>
+				<table>
+					<caption>Table with Colspan</caption>
+					<tbody>
+						<tr>
+							<td colspan="2">TC 1</td>
+							<!-- <td>TC 2</td> -->
+							<td>TC 3</td>
+							<td>TC 4</td>
+							<td>TC 5</td>
+						</tr>
+						<tr>
+							<td>TC 1</td>
+							<td colspan="2">TC 2</td>
+							<!-- <td>TC 3</td> -->
+							<td>TC 4</td>
+							<td>TC 5</td>
+						</tr>
+						<tr>
+							<td>TC 1</td>
+							<td>TC 2</td>
+							<td colspan="2">TC 3</td>
+							<!-- <td>TC 4</td> -->
+							<td>TC 5</td>
+						</tr>
+						<tr>
+							<td>TC 1</td>
+							<td>TC 2</td>
+							<td>TC 3</td>
+							<td colspan="2">TC 4</td>
+							<!-- <td>TC 5</td> -->
+						</tr>
+						<tr>
+							<td colspan="2">TC 1</td>
+							<!-- <td>TC 2</td> -->
+							<td>TC 3</td>
+							<td>TC 4</td>
+							<td>TC 5</td>
+						</tr>
+					</tbody>
+				</table>
 				<footer><p><a href="#top">[Top]</a></p></footer>
 			</article>
 			<article id="code">
