@@ -23,11 +23,17 @@
 		"not dead"
 	],
 	"scripts": {
-		"build": "parcel build src/klales.scss",
+		"build": "parcel build src/klales.css",
 		"docs": "parcel src/_docs/*.html --dist-dir docs  --public-url /klales/"
 	},
+	"@parcel/transformer-css": {
+		"drafts": {
+			"nesting": true
+		}
+	},
 	"devDependencies": {
-		"@parcel/transformer-sass": "2.9.3",
-		"parcel": "^2.9.3"
-	}
+		"@parcel/transformer-sass": "2.10.1",
+		"parcel": "^2.10.1"
+	},
+	"dependencies": {}
 }
