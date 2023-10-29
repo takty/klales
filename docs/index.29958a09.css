@@ -234,8 +234,7 @@ h6 {
 }
 
 :where(u) {
-  -webkit-text-decoration: underline wavy;
-  text-decoration: underline wavy;
+  text-decoration: underline;
 }
 
 :where(del) {
