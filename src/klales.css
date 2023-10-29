@@ -228,7 +228,7 @@ h6 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 1); }
 }
 
 :where(u) {
-	text-decoration: underline wavy;
+	text-decoration: underline solid;
 }
 
 :where(del) {
