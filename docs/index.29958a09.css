@@ -219,11 +219,7 @@ h6 {
   font-weight: bold;
 }
 
-:where(em, i) {
-  font-style: italic;
-}
-
-:where(cite, dfn) {
+:where(em, i), :where(cite, dfn) {
   font-style: italic;
 }
 
@@ -355,8 +351,8 @@ h6 {
 }
 
 :where(img, picture, svg, video, canvas, iframe, embed, object, audio) {
-  max-width: 100%;
   vertical-align: middle;
+  max-width: 100%;
 }
 
 :where(img, picture, svg, video, canvas) {
@@ -415,7 +411,16 @@ h6 {
   margin-inline: auto;
 }
 
-:where(button, input, select, textarea, [role="button"]), ::file-selector-button {
+:where(button, input, select, textarea, [role="button"]) {
+  font-feature-settings: "pkna" 1;
+  color: inherit;
+  accent-color: #06c;
+  border-radius: 0;
+  font-size: .875rem;
+  line-height: 1.15;
+}
+
+::file-selector-button {
   font-feature-settings: "pkna" 1;
   color: inherit;
   accent-color: #06c;
@@ -467,10 +472,10 @@ h6 {
 :where(input[type="color" i]) {
   appearance: none;
   background-color: Canvas;
-  min-width: 3rem;
-  min-height: 2rem;
   vertical-align: middle;
   border: 1px solid #999;
+  min-width: 3rem;
+  min-height: 2rem;
   padding: .25rem;
 }
 
@@ -496,9 +501,9 @@ h6 {
 }
 
 :where(input):where([type="radio" i], [type="checkbox" i]) {
+  vertical-align: middle;
   width: 1em;
   height: 1em;
-  vertical-align: middle;
   margin: 0;
   translate: 0 -.1em;
 }
@@ -590,12 +595,8 @@ h6 {
   quotes: "『" "』";
 }
 
-:where(:lang(ja)):where(dfn) {
+:where(:lang(ja)):where(dfn), :where(:lang(ja)):where(q) {
   quotes: "「" "」";
 }
 
-:where(:lang(ja)):where(q) {
-  quotes: "「" "」";
-}
-
-/*# sourceMappingURL=index.35565bfb.css.map */
+/*# sourceMappingURL=index.29958a09.css.map */
