@@ -29,6 +29,7 @@
 :where(html) {
   overflow-wrap: break-word;
   tab-size: 4;
+  -webkit-text-size-adjust: none;
   font-family: system-ui, -apple-system, sans-serif;
   line-height: calc(1em + .75rem);
 }
@@ -563,6 +564,10 @@ h6 {
 
 :focus-visible {
   outline-color: #07fa;
+}
+
+:target {
+  scroll-margin-block: 1rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
