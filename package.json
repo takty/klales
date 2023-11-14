@@ -32,8 +32,6 @@
 		}
 	},
 	"devDependencies": {
-		"@parcel/transformer-sass": "2.10.1",
-		"parcel": "^2.10.1"
-	},
-	"dependencies": {}
+		"parcel": "^2.10.2"
+	}
 }
