@@ -1,3 +1,9 @@
+/*!
+ * Klales
+ *
+ * @author Takuto Yanagida
+ * @version 2023-11-14
+ */
 *, :before, :after {
   box-sizing: border-box;
   background-repeat: no-repeat;
@@ -7,7 +13,7 @@
   font-family: inherit;
 }
 
-:root {
+:where(:root) {
   --margin-block-large: 2rem;
   --margin-block-medium: 1rem;
   --margin-block-small: .75rem;
@@ -15,13 +21,13 @@
 }
 
 @media screen and (width >= 600px) {
-  :root {
+  :where(:root) {
     --font-size-unit: .1875rem;
   }
 }
 
 @media screen and (width >= 900px) {
-  :root {
+  :where(:root) {
     --font-size-unit: .25rem;
   }
 }
@@ -127,27 +133,27 @@
   line-height: 1;
 }
 
-h1 {
+:where(h1) {
   font-size: calc(1rem + var(--font-size-unit, .25rem) * 6);
 }
 
-h2 {
+:where(h2) {
   font-size: calc(1rem + var(--font-size-unit, .25rem) * 5);
 }
 
-h3 {
+:where(h3) {
   font-size: calc(1rem + var(--font-size-unit, .25rem) * 4);
 }
 
-h4 {
+:where(h4) {
   font-size: calc(1rem + var(--font-size-unit, .25rem) * 3);
 }
 
-h5 {
+:where(h5) {
   font-size: calc(1rem + var(--font-size-unit, .25rem) * 2);
 }
 
-h6 {
+:where(h6) {
   font-size: calc(1rem + var(--font-size-unit, .25rem) * 1);
 }
 
@@ -156,7 +162,6 @@ h6 {
 }
 
 :where(p, h1, h2, h3, h4, h5, h6) {
-  -webkit-hyphens: auto;
   hyphens: auto;
 }
 
@@ -391,11 +396,11 @@ h6 {
   border-inline-end: 1px solid #999;
 }
 
-:where(td, th) > :first-child {
+:where(:is(td, th) > :first-child) {
   margin-block-start: 0;
 }
 
-:where(td, th) > :last-child {
+:where(:is(td, th) > :last-child) {
   margin-block-end: 0;
 }
 
@@ -551,7 +556,11 @@ h6 {
   inset: 2rem auto 0 0;
 }
 
-:where(details) > :nth-child(2) {
+:where(:where(details) > :not(summary)) {
+  margin-inline: clamp(1.25rem, 999900% - 359964rem, 2.25rem) 0;
+}
+
+:where(:where(details) > :nth-child(2)) {
   margin-block-start: 0;
 }
 
@@ -562,16 +571,16 @@ h6 {
   display: list-item;
 }
 
-:focus-visible {
+:where(:focus-visible) {
   outline-color: #07fa;
 }
 
-:target {
+:where(:target) {
   scroll-margin-block: 1rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html:focus-within {
+  :where(html:focus-within) {
     scroll-behavior: auto;
   }
 
