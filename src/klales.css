@@ -1,8 +1,8 @@
-/**
+/*!
  * Klales
  *
  * @author Takuto Yanagida
- * @version 2023-10-30
+ * @version 2023-11-14
  */
 
 *,
@@ -16,7 +16,7 @@
 	font-family: inherit;
 }
 
-:root {
+:where(:root) {
 	--margin-block-large : 2rem;
 	--margin-block-medium: 1rem;
 	--margin-block-small : 0.75rem;
@@ -125,12 +125,12 @@
 	line-height: 1;
 }
 
-h1 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 6); }
-h2 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 5); }
-h3 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 4); }
-h4 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 3); }
-h5 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 2); }
-h6 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 1); }
+:where(h1) { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 6); }
+:where(h2) { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 5); }
+:where(h3) { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 4); }
+:where(h4) { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 3); }
+:where(h5) { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 2); }
+:where(h6) { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 1); }
 
 :where(small, caption, figcaption) {
 	font-size: 0.875rem;
@@ -408,11 +408,11 @@ h6 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 1); }
 	border-inline-end: #999 1px solid;
 }
 
-:where(td, th) > :first-child {
+:where(:is(td, th) > :first-child) {
 	margin-block-start: 0;
 }
 
-:where(td, th) > :last-child {
+:where(:is(td, th) > :last-child) {
 	margin-block-end: 0;
 }
 
@@ -602,19 +602,24 @@ h6 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 1); }
 :where(details[open]) {
 	position: relative;
 	z-index : 0;
+
+	&::before {
+		content : '';
+		position: absolute;
+		inset   : 2rem auto 0 0;
+		z-index : -1;
+
+		border-inline-start: 0.75rem solid #9993;
+	}
 }
 
-:where(details[open])::before {
-	content : '';
-	position: absolute;
-	inset   : 2rem auto 0 0;
-	z-index : -1;
-
-	border-inline-start: 0.75rem solid #9993;
-}
-
-:where(details) > :nth-child(2) {
-	margin-block-start: 0;
+:where(details) {
+	:where(& > :not(summary)) {
+		margin-inline: clamp(1.25rem, calc((100% - 36rem) * 9999), 2.25rem) 0;
+	}
+	:where(& > :nth-child(2)) {
+		margin-block-start: 0;
+	}
 }
 
 :where(summary) {
@@ -623,16 +628,16 @@ h6 { font-size: calc(1rem + var(--font-size-unit, 0.25rem) * 1); }
 	user-select: none;
 }
 
-:focus-visible {
+:where(:focus-visible) {
 	outline-color: #07fa;
 }
 
-:target {
+:where(:target) {
 	scroll-margin-block: 1rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
-	html:focus-within {
+	:where(html:focus-within) {
 		scroll-behavior: auto;
 	}
 	*,
