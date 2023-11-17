@@ -2,7 +2,7 @@
  * Klales
  *
  * @author Takuto Yanagida
- * @version 2023-11-14
+ * @version 2023-11-18
  */
 *, :before, :after {
   box-sizing: border-box;
@@ -68,7 +68,7 @@
   margin-block: var(--margin-block-medium);
 }
 
-:where(summary) {
+:where(details[open] > summary) {
   margin-block-end: var(--margin-block-medium);
 }
 
