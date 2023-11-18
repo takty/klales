@@ -23,7 +23,7 @@
 		"not dead"
 	],
 	"scripts": {
-		"build": "parcel build src/klales.css",
+		"build": "parcel build src/klales.css --dist-dir ./",
 		"docs": "parcel src/_docs/*.html --dist-dir docs  --public-url /klales/"
 	},
 	"@parcel/transformer-css": {
