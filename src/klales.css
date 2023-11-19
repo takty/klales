@@ -185,11 +185,11 @@
 
 
 :where(ul, ol) {
-	padding-inline-start: clamp(2rem, calc((100% - 36rem) * 9999), 3rem);
+	padding-inline-start: calc(3ch + clamp(0rem, calc((100% - 36rem) * 1000), 1rem));
 }
 
 :where(dd) {
-	margin-inline-start: clamp(2rem, calc((100% - 36rem) * 9999), 3rem);
+	margin-inline-start: calc(3ch + clamp(0rem, calc((100% - 36rem) * 1000), 1rem));
 }
 
 :where(dt),
@@ -290,8 +290,8 @@
 }
 
 :where(blockquote) {
-	margin-inline       : clamp(1.25rem, calc((100% - 36rem) * 9999), 2.25rem) 0;
-	padding-inline-start: 0.75rem;
+	margin-inline       : calc(1.75ch + clamp(0rem, calc((100% - 36rem) * 1000), 1rem)) 0;
+	padding-inline-start: 1.25ch;
 
 	border-inline-start: 2px solid #999;
 
