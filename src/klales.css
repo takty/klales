@@ -2,7 +2,7 @@
  * Klales
  *
  * @author Takuto Yanagida
- * @version 2023-11-18
+ * @version 2023-11-19
  */
 
 *,
@@ -68,7 +68,7 @@
 }
 
 :where(details[open] > summary) {
-	margin-block-end: var(--margin-block-medium);
+	margin-block-end: var(--margin-block-small);
 }
 
 :where(h1, hgroup:has(h1)) { margin-block: 3.50rem 3.00rem; }
@@ -603,22 +603,16 @@
 	position: relative;
 	z-index : 0;
 
-	&::before {
-		content : '';
-		position: absolute;
-		inset   : 2rem auto 0 0;
-		z-index : -1;
-
-		border-inline-start: 0.75rem solid #9993;
-	}
+	padding-block-end: var(--margin-block-medium);
+	border-block-end : 2px dotted #9996;
 }
 
 :where(details) {
-	:where(& > :not(summary)) {
-		margin-inline: clamp(1.25rem, calc((100% - 36rem) * 9999), 2.25rem) 0;
-	}
-	:where(& > :nth-child(2)) {
+	:where(& > :nth-child(1 of :not(summary))) {
 		margin-block-start: 0;
+	}
+	:where(& > :nth-last-child(1 of :not(summary))) {
+		margin-block-end: 0;
 	}
 }
 
@@ -627,6 +621,10 @@
 	cursor     : pointer;
 	user-select: none;
 }
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
+
 
 :where(:focus-visible) {
 	outline-color: #07fa;
