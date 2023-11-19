@@ -68,10 +68,6 @@
   margin-block: var(--margin-block-medium);
 }
 
-:where(details[open] > summary) {
-  margin-block-end: var(--margin-block-small);
-}
-
 :where(h1, hgroup:has(h1)) {
   margin-block: 3.5rem 3rem;
 }
@@ -118,6 +114,10 @@
 
 :where(caption) {
   padding-block-end: var(--margin-block-small);
+}
+
+:where(details[open] > summary) {
+  margin-block-end: var(--margin-block-small);
 }
 
 :where(pre, code, samp, kbd) {
@@ -535,6 +535,7 @@
 }
 
 :where(textarea) {
+  width: min(var(--cols, 20ch), 100%);
   vertical-align: top;
 }
 
