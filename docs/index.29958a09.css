@@ -2,7 +2,7 @@
  * Klales
  *
  * @author Takuto Yanagida
- * @version 2023-11-18
+ * @version 2023-11-19
  */
 *, :before, :after {
   box-sizing: border-box;
@@ -69,7 +69,7 @@
 }
 
 :where(details[open] > summary) {
-  margin-block-end: var(--margin-block-medium);
+  margin-block-end: var(--margin-block-small);
 }
 
 :where(h1, hgroup:has(h1)) {
@@ -204,11 +204,11 @@
 }
 
 :where(ul, ol) {
-  padding-inline-start: clamp(2rem, 999900% - 359964rem, 3rem);
+  padding-inline-start: calc(3ch + clamp(0rem, 100000% - 36000rem, 1rem));
 }
 
 :where(dd) {
-  margin-inline-start: clamp(2rem, 999900% - 359964rem, 3rem);
+  margin-inline-start: calc(3ch + clamp(0rem, 100000% - 36000rem, 1rem));
 }
 
 :where(dt), :where(li)::marker {
@@ -296,8 +296,8 @@
 
 :where(blockquote) {
   border-inline-start: 2px solid #999;
-  margin-inline: clamp(1.25rem, 999900% - 359964rem, 2.25rem) 0;
-  padding-inline-start: .75rem;
+  margin-inline: calc(1.75ch + clamp(0rem, 100000% - 36000rem, 1rem)) 0;
+  padding-inline-start: 1.25ch;
   font-style: normal;
   position: relative;
 }
@@ -545,23 +545,17 @@
 
 :where(details[open]) {
   z-index: 0;
+  border-block-end: 2px dotted #9996;
+  padding-block-end: var(--margin-block-medium);
   position: relative;
 }
 
-:where(details[open]):before {
-  content: "";
-  z-index: -1;
-  border-inline-start: .75rem solid #9993;
-  position: absolute;
-  inset: 2rem auto 0 0;
-}
-
-:where(:where(details) > :not(summary)) {
-  margin-inline: clamp(1.25rem, 999900% - 359964rem, 2.25rem) 0;
-}
-
-:where(:where(details) > :nth-child(2)) {
+:where(:where(details) > :nth-child(1 of :not(summary))) {
   margin-block-start: 0;
+}
+
+:where(:where(details) > :nth-last-child(1 of :not(summary))) {
+  margin-block-end: 0;
 }
 
 :where(summary) {
