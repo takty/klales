@@ -67,10 +67,6 @@
 	margin-block: var(--margin-block-medium);
 }
 
-:where(details[open] > summary) {
-	margin-block-end: var(--margin-block-small);
-}
-
 :where(h1, hgroup:has(h1)) { margin-block: 3.50rem 3.00rem; }
 :where(h2, hgroup:has(h2)) { margin-block: 3.00rem 2.50rem; }
 :where(h3, hgroup:has(h3)) { margin-block: 2.50rem 2.00rem; }
@@ -100,6 +96,10 @@
 
 :where(caption) {
 	padding-block-end: var(--margin-block-small);  /* Must use 'padding-block-end' */
+}
+
+:where(details[open] > summary) {
+	margin-block-end: var(--margin-block-small);
 }
 
 
@@ -585,6 +585,7 @@
 }
 
 :where(textarea) {
+	width         : min(var(--cols, 20ch), 100%);
 	vertical-align: top;
 }
 
