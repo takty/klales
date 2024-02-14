@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"bPSMJ":[function(require,module,exports) {
+})({"iqBwg":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
@@ -226,7 +226,11 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== "undefined") {
     var hostname = getHostname();
     var port = getPort();
-    var protocol = HMR_SECURE || location.protocol == "https:" && !/localhost|127.0.0.1|0.0.0.0/.test(hostname) ? "wss" : "ws";
+    var protocol = HMR_SECURE || location.protocol == "https:" && ![
+        "localhost",
+        "127.0.0.1",
+        "0.0.0.0"
+    ].includes(hostname) ? "wss" : "ws";
     var ws;
     try {
         ws = new WebSocket(protocol + "://" + hostname + (port ? ":" + port : "") + "/");
@@ -576,6 +580,6 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 
 },{}],"eewiw":[function(require,module,exports) {
 
-},{}]},["bPSMJ","eewiw"], "eewiw", "parcelRequireb3f3")
+},{}]},["iqBwg","eewiw"], "eewiw", "parcelRequireb3f3")
 
 //# sourceMappingURL=flow.d1a1d861.js.map
