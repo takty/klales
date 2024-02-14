@@ -20,7 +20,8 @@
 	"browserslist": "> 0.5%, last 2 versions, not dead",
 	"scripts": {
 		"build": "parcel build src/klales.css --no-source-maps --dist-dir ./",
-		"docs": "parcel src/_docs/*.html --dist-dir docs  --public-url /klales/"
+		"docs": "parcel build src/_docs/*.html --dist-dir docs  --public-url /klales/",
+		"dev": "parcel src/_docs/*.html --dist-dir dev"
 	},
 	"@parcel/transformer-css": {
 		"drafts": {
