@@ -2,7 +2,7 @@
  * Klales
  *
  * @author Takuto Yanagida
- * @version 2023-11-19
+ * @version 2024-03-26
  */
 
 *,
@@ -33,7 +33,7 @@
 	line-height: calc(1em + 0.75rem);
 	tab-size   : 4;
 
-	-webkit-text-size-adjust: none;
+	text-size-adjust: none;
 
 	@media (resolution >= 2dppx) {
 		 -webkit-font-smoothing: antialiased;  /* For Safari and Chrome on macOS */
