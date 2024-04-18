@@ -476,6 +476,8 @@
 
 	display    : inline-grid;
 	place-items: center;
+
+	touch-action: manipulation;
 }
 
 :where(button[type='submit' i], input[type='submit' i]) {
