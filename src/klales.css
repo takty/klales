@@ -228,7 +228,7 @@
 
 :where(ins) {  /* Fix underline */
 			text-decoration          : underline solid #0c0a;
-	-webkit-text-decoration          : underline solid #0c0a;  /* For Safari */
+	-webkit-text-decoration          : underline solid #0c0a;  /* For Safari */  /* stylelint-disable-line property-no-vendor-prefix */
 			text-decoration-thickness: 2px;  /* For Safari */
 }
 
@@ -238,7 +238,7 @@
 
 :where(del) {
 			text-decoration          : line-through solid #f40a;
-	-webkit-text-decoration          : line-through solid #f40a;  /* For Safari */
+	-webkit-text-decoration          : line-through solid #f40a;  /* For Safari */  /* stylelint-disable-line property-no-vendor-prefix */
 			text-decoration-thickness: 2px;  /* For Safari */
 }
 
@@ -273,7 +273,7 @@
 
 :where(abbr[title]) {
 			text-decoration          : underline dotted;
-	-webkit-text-decoration          : underline dotted;  /* For Safari */
+	-webkit-text-decoration          : underline dotted;  /* For Safari */  /* stylelint-disable-line property-no-vendor-prefix */
 			text-decoration-thickness: 2px;  /* For Safari */
 
 	cursor: help;
@@ -346,7 +346,7 @@
 	display: contents;
 }
 
-:where(figcaption) {
+:where(figcaption) {  /* stylelint-disable-line no-duplicate-selectors */
 	text-align: left;
 
 	margin-inline  : auto;
@@ -424,7 +424,7 @@
 	font-weight     : bold;
 }
 
-:where(caption) {
+:where(caption) {  /* stylelint-disable-line no-duplicate-selectors */
 	text-align: left;
 
 	margin-inline  : auto;
