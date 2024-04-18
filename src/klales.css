@@ -2,7 +2,7 @@
  * Klales
  *
  * @author Takuto Yanagida
- * @version 2024-03-26
+ * @version 2024-04-18
  */
 
 *,
@@ -27,8 +27,11 @@
 }
 
 :where(html) {
-	font-family  : system-ui, -apple-system, sans-serif;
-	overflow-wrap: break-word;
+	font-family: system-ui, -apple-system, sans-serif;
+
+	overflow-wrap: anywhere;
+	word-break   : normal;
+	line-break   : strict;
 
 	line-height: calc(1em + 0.75rem);
 	tab-size   : 4;
