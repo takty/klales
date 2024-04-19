@@ -2,7 +2,7 @@
  * Klales
  *
  * @author Takuto Yanagida
- * @version 2024-04-18
+ * @version 2024-04-19
  */
 
 *,
@@ -564,10 +564,7 @@
 	width : 1em;
 	height: 1em;
 
-	translate: 0 -0.1em;  /* For Firefox */
-	@supports (translate: 1lh) {
-		translate: 0 calc((1em - 1lh) / 2);
-	}
+	translate     : 0 calc((1em - 1lh) / 2);
 	vertical-align: middle;
 }
 
