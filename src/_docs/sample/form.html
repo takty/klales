@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="../../klales.css">
 <title>Form Elements</title>
 <script>
-function disable() {
+global.disable = function disable() {
 	const es = document.querySelectorAll('input, button, select, textarea, .button, [class^="form"]');
 	for (const e of es) e.setAttribute('disabled', '');
 }
