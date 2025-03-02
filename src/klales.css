@@ -2,7 +2,7 @@
  * Klales
  *
  * @author Takuto Yanagida
- * @version 2024-04-19
+ * @version 2025-03-02
  */
 
 *,
@@ -193,6 +193,18 @@
 
 :where(dd) {
 	margin-inline-start: calc(3ch + clamp(0rem, calc((100% - 36rem) * 1000), 1rem));
+}
+
+:where(ol) {
+	list-style-type: decimal;
+}
+
+:where(ol ol) {
+	list-style-type: lower-alpha;
+}
+
+:where(ol ol ol) {
+	list-style-type: lower-roman;
 }
 
 :where(dt),
@@ -667,7 +679,7 @@
 		quotes: '『' '』';
 	}
 
-	&:where(dfn) {
+	&:where(dfn) {  /* For Firefox */
 		quotes: '「' '」';
 	}
 
