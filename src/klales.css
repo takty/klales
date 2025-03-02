@@ -471,7 +471,7 @@
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
 
-:where(button, input, select, textarea, [role='button'], summary),
+:where(button, input, select, textarea, [role='button']),
 ::file-selector-button {
 	font-feature-settings: 'pkna' 1;
 
@@ -655,15 +655,19 @@
 }
 
 :where(summary) {
-	width      : fit-content;
-	cursor     : default;
-	user-select: none;
+	font-feature-settings: 'pkna' 1;
+
+	font-size  : 0.875rem;
+	line-height: 1.15;
 
 	background-color: #9996;
 	border          : 1px solid transparent;
 
+	width  : fit-content;
 	padding: 0.5em 1em;
 
+	cursor      : default;
+	user-select : none;
 	touch-action: manipulation;
 }
 
