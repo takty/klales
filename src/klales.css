@@ -55,6 +55,8 @@
 :where(body > :is(header, main, footer)) {
 	width        : min(94vw, 48rem);
 	margin-inline: auto;
+
+	container-type: inline-size;
 }
 
 
@@ -188,11 +190,21 @@
 
 
 :where(ul, ol) {
-	padding-inline-start: calc(3ch + clamp(0rem, calc((100% - 36rem) * 1000), 1rem));
+	padding-inline-start: 3ch;
 }
 
 :where(dd) {
-	margin-inline-start: calc(3ch + clamp(0rem, calc((100% - 36rem) * 1000), 1rem));
+	margin-inline-start: 3ch;
+}
+
+@container (48rem <= inline-size) {
+	:where(ul, ol) {
+		padding-inline-start: calc(3ch + 1rem);
+	}
+
+	:where(dd) {
+		margin-inline-start: calc(3ch + 1rem);
+	}
 }
 
 :where(ol) {
@@ -310,7 +322,7 @@
 }
 
 :where(blockquote) {
-	margin-inline       : calc(1.75ch + clamp(0rem, calc((100% - 36rem) * 1000), 1rem)) 0;
+	margin-inline       : 1.75ch 0;
 	padding-inline-start: 1.25ch;
 
 	border-inline-start: 2px solid #999;
@@ -318,6 +330,12 @@
 	font-style: normal;
 
 	position: relative;
+}
+
+@container (48rem <= inline-size) {
+	:where(blockquote) {
+		margin-inline-start: calc(1.75ch + 1rem);
+	}
 }
 
 :where(blockquote > cite) {
