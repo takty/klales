@@ -213,6 +213,11 @@
 	font-weight: bold;
 }
 
+:where(ul > li)::marker {
+	font-size  : 115%;
+	line-height: 0;
+}
+
 :where(nav ul) {
 	padding-inline-start: 0;
 	list-style-type     : none;
