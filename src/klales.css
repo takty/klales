@@ -53,7 +53,7 @@
 	}
 
 	:where(body > :is(header, main, footer)) {
-		width        : min(94vw, 48rem);
+		inline-size  : min(94vw, 48rem);
 		margin-inline: auto;
 	}
 
@@ -378,8 +378,8 @@
 	}
 
 	:where(figure) {
-		margin-inline: 0;
-		max-width    : 100%;
+		margin-inline  : 0;
+		max-inline-size: 100%;
 	}
 
 	:where(figure) :where(img, picture, iframe) {
@@ -392,11 +392,11 @@
 	}
 
 	:where(figcaption) {  /* stylelint-disable-line no-duplicate-selectors */
-		text-align: left;
+		text-align: start;
 
 		margin-inline  : auto;
 		max-inline-size: max-content;
-		width          : 90%;
+		inline-size    : 90%;
 	}
 
 
@@ -408,12 +408,12 @@
 	}
 
 	:where(img, picture, svg, video, canvas, iframe, embed, object, audio) {
-		max-width     : 100%;
-		vertical-align: middle;
+		max-inline-size: 100%;
+		vertical-align : middle;
 	}
 
 	:where(img, picture, svg, video, canvas) {
-		height: auto;
+		block-size: auto;
 	}
 
 	:where(iframe) {
@@ -470,11 +470,11 @@
 	}
 
 	:where(caption) {  /* stylelint-disable-line no-duplicate-selectors */
-		text-align: left;
+		text-align: start;
 
 		margin-inline  : auto;
 		max-inline-size: max-content;
-		width          : min(36rem, 100%);
+		inline-size    : min(36rem, 100%);
 	}
 
 
@@ -572,8 +572,8 @@
 		background-color: Canvas;
 		border          : 1px solid #999;
 
-		min-width : 3rem;
-		min-height: 2rem;
+		min-inline-size: 3rem;
+		min-block-size : 2rem;
 
 		padding       : 0.25rem;
 		vertical-align: middle;
@@ -608,8 +608,8 @@
 	:where(input):where([type='radio' i], [type='checkbox' i]) {
 		margin: 0;
 
-		width : 1em;
-		height: 1em;
+		inline-size: 1em;
+		block-size : 1em;
 
 		translate     : 0 calc((1em - 1lh) / 2);
 		vertical-align: middle;
@@ -630,11 +630,11 @@
 	}
 
 	:where(option) {
-		min-height: unset;
+		min-block-size: unset;
 	}
 
 	:where(textarea) {
-		width         : min(var(--cols, 20ch), 100%);
+		inline-size   : min(var(--cols, 20ch), 100%);
 		vertical-align: top;
 
 		field-sizing: content;
@@ -677,8 +677,8 @@
 		background-color: #9996;
 		border          : 1px solid transparent;
 
-		width  : fit-content;
-		padding: 0.5em 1em;
+		inline-size: fit-content;
+		padding    : 0.5em 1em;
 
 		user-select : none;
 		touch-action: manipulation;
