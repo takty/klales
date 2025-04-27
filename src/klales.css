@@ -258,19 +258,26 @@
 	}
 
 	:where(ins) {  /* Fix underline */
-				text-decoration          : underline solid #0c0a;
-		-webkit-text-decoration          : underline solid #0c0a;  /* For Safari */  /* stylelint-disable-line property-no-vendor-prefix */
-				text-decoration-thickness: 2px;  /* For Safari */
+		/* The shorthand is not usable for Safari */
+		text-decoration-line     : underline;
+		text-decoration-style    : solid;
+		text-decoration-color    : #0b0a;
+		text-decoration-thickness: 2px;
+		text-underline-offset    : 0.25em;
 	}
 
 	:where(u) {
-		text-decoration: underline solid;
+		text-decoration-line : underline;
+		text-decoration-style: solid;
+		text-underline-offset: 0.25em;
 	}
 
 	:where(del) {
-				text-decoration          : line-through solid #f40a;
-		-webkit-text-decoration          : line-through solid #f40a;  /* For Safari */  /* stylelint-disable-line property-no-vendor-prefix */
-				text-decoration-thickness: 2px;  /* For Safari */
+		/* The shorthand is not usable for Safari */
+		text-decoration-line     : line-through;
+		text-decoration-style    : solid;
+		text-decoration-color    : #f04a;
+		text-decoration-thickness: 2px;
 	}
 
 	:where(s) {
@@ -303,9 +310,11 @@
 	}
 
 	:where(abbr[title]) {
-				text-decoration          : underline dotted;
-		-webkit-text-decoration          : underline dotted;  /* For Safari */  /* stylelint-disable-line property-no-vendor-prefix */
-				text-decoration-thickness: 2px;  /* For Safari */
+		/* The shorthand is not usable for Safari */
+		text-decoration-line     : underline;
+		text-decoration-style    : dotted;
+		text-decoration-thickness: 2px;
+		text-underline-offset    : 0.25em;
 
 		cursor: help;
 	}
