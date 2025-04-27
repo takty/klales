@@ -665,6 +665,16 @@
 		scroll-margin-block: 1rem;
 	}
 
+	:where(
+		:any-link,
+		button, [role='button']
+		[type='submit' i], [type='button' i], [type='reset' i],
+		label[for], select, summary,
+		[role='tab'],
+	) {
+		cursor: pointer;
+	}
+
 	@media (prefers-reduced-motion: reduce) {
 		:where(html:focus-within) {
 			scroll-behavior: auto;
