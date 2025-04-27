@@ -157,7 +157,7 @@
 	}
 
 	:where(a):where(
-		[href*='://'],
+		[href^='#'], [href^='//'], [href*='://'],
 		[href$='.doc'i], [href$='.docx'i],
 		[href$='.xls'i], [href$='.xlsx'i],
 		[href$='.ppt'i], [href$='.pptx'i],
@@ -170,10 +170,17 @@
 		line-height: 1;
 	}
 
-	:where(a[href*='://'])::after {
-		content    : '↗';
+	:where(a[href^='#'], a[href^='//'], a[href*='://'])::after {
 		font-family: Calibri, system-ui;
 		font-size  : 85%;
+	}
+
+	:where(a[href^='#'])::after {
+		content: '⇅';
+	}
+
+	:where(a[href^='//'], a[href*='://'])::after {
+		content: '↗';
 	}
 
 	:where(a):where(
@@ -676,6 +683,10 @@
 	:where(:focus-visible) {
 		outline       : 2px solid #07fa;
 		outline-offset: -1px;
+	}
+
+	::target-text {
+		background-color: #07f3;
 	}
 
 	:where(:target) {
