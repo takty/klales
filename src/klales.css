@@ -312,6 +312,10 @@
 	/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
+	:where(p) {
+		text-wrap-style: pretty;
+	}
+
 	:where(hr) {
 		border            : none;  /* For reset */
 		border-block-start: 2px solid #999;
@@ -350,7 +354,8 @@
 	}
 
 	:where(h1, h2, h3, h4, h5, h6) {
-		break-after: avoid;
+		text-wrap-style: balance;
+		break-after    : avoid;
 	}
 
 	:where(h1, h2, h3, h4, h5, h6) > :where(small) {
