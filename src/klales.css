@@ -2,7 +2,7 @@
  * Klales
  *
  * @author Takuto Yanagida
- * @version 2025-04-18
+ * @version 2025-04-27
  */
 
 @layer klales {
@@ -23,8 +23,8 @@
 		--margin-block-small : 0.75rem;
 
 		--font-size-unit: 0.125rem;
-		@media screen and (600px <= width) { --font-size-unit: 0.1875rem; }
-		@media screen and (900px <= width) { --font-size-unit: 0.25rem; }
+		@media (600px <= width) { --font-size-unit: 0.1875rem; }
+		@media (900px <= width) { --font-size-unit: 0.25rem; }
 	}
 
 	:where(html) {
@@ -59,7 +59,7 @@
 	}
 
 
-	/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
+	/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
 	:where(ul, ol, dl, blockquote, pre, figure, table, hr) {
@@ -86,8 +86,12 @@
 		margin-block: var(--margin-block-small);
 	}
 
-	:where(dt + dd) {
-		margin-block-start: calc(-1 * var(--margin-block-small));
+	:where(dt:has(+ dd)) {
+		margin-block-end: 0;
+	}
+
+	:where(dl > div) {
+		margin-block: 0;
 	}
 
 	:where(nav li) {
@@ -107,7 +111,7 @@
 	}
 
 
-	/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
+	/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
 	:where(pre, code, samp, kbd) {
@@ -145,8 +149,12 @@
 	}
 
 
-	/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
+	/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
+
+	:where(:any-link) {
+		text-underline-offset: 0.25em;
+	}
 
 	:where(a):where(
 		[href*='://'],
@@ -185,7 +193,7 @@
 	:where(a[href$='.zip'i])::after { content: '[ZIP]'; }
 
 
-	/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
+	/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
 	:where(ul, ol) {
@@ -224,7 +232,7 @@
 	}
 
 
-	/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
+	/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
 	:where(strong, b) {
@@ -297,11 +305,11 @@
 	}
 
 	:where(rt) {
-		transform: translateY(0.125em);
+		translate: 0 0.125em;
 	}
 
 
-	/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
+	/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
 	:where(hr) {
@@ -372,7 +380,7 @@
 	}
 
 
-	/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
+	/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
 	:where(img, iframe) {
@@ -393,7 +401,7 @@
 	}
 
 
-	/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
+	/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
 	:where(table) {
@@ -450,7 +458,7 @@
 	}
 
 
-	/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
+	/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
 	:where(button, input, select, textarea, [role='button']),
@@ -482,8 +490,10 @@
 
 	/* - - -*/
 
-	:where(button, [role='button']),
-	:where(input:is([type='submit' i], [type='button' i], [type='reset' i])) {
+	:where(
+		button, [role='button'],
+		input:is([type='submit' i], [type='button' i], [type='reset' i])
+	) {
 		appearance: none;
 
 		background-color: #9996;
@@ -606,6 +616,8 @@
 	:where(textarea) {
 		width         : min(var(--cols, 20ch), 100%);
 		vertical-align: top;
+
+		field-sizing: content;
 	}
 
 	/* - - -*/
@@ -616,7 +628,7 @@
 	}
 
 
-	/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
+	/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
 	:where(details[open]) {
@@ -648,17 +660,17 @@
 		width  : fit-content;
 		padding: 0.5em 1em;
 
-		cursor      : default;
 		user-select : none;
 		touch-action: manipulation;
 	}
 
 
-	/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
+	/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
 	:where(:focus-visible) {
-		outline-color: #07fa;
+		outline       : 2px solid #07fa;
+		outline-offset: -1px;
 	}
 
 	:where(:target) {
@@ -690,7 +702,7 @@
 	}
 
 
-	/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
+	/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
 	:where(:lang(ja)) {
