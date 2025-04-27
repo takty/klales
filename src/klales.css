@@ -2,7 +2,7 @@
  * Klales
  *
  * @author Takuto Yanagida
- * @version 2025-04-27
+ * @version 2025-04-28
  */
 
 @layer klales {
@@ -175,7 +175,7 @@
 	}
 
 	:where(a[href^='#'])::after {
-		content: '⇅';
+		content: '↙';
 	}
 
 	:where(a[href^='//'], a[href*='://'])::after {
