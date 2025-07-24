@@ -2,7 +2,7 @@
  * Klales
  *
  * @author Takuto Yanagida
- * @version 2025-04-28
+ * @version 2025-07-24
  */
 
 @layer klales {
@@ -28,7 +28,7 @@
 	}
 
 	:where(html) {
-		font-family: system-ui, -apple-system, sans-serif;
+		font-family: BlinkMacSystemFont, -apple-system, sans-serif;
 
 		overflow-wrap: anywhere;
 		word-break   : normal;
