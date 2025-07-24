@@ -57,6 +57,22 @@
 		margin-inline: auto;
 	}
 
+	/* - - -*/
+
+	:where(html) {
+		text-autospace: normal;
+	}
+
+	:where(
+		pre,
+		time,
+		input:not([type='submit' i], [type='button' i], [type='reset' i]),
+		textarea,
+		[contenteditable]
+	) {
+		text-autospace: no-autospace;
+	}
+
 
 	/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
