@@ -497,7 +497,18 @@
 	/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
-	:where(button, input, select, textarea, [role='button']),
+	:where(
+		button,
+		input:is([type='submit' i], [type='button' i], [type='reset' i]),
+		[role='button' i], [role='option' i], [role='tab' i]
+	),
+	::file-selector-button {
+		touch-action: manipulation;
+	}
+
+	/* - - -*/
+
+	:where(button, input, select, textarea, [role='button' i]),
 	::file-selector-button {
 		font-feature-settings: 'pkna' 1;
 
@@ -527,7 +538,7 @@
 	/* - - -*/
 
 	:where(
-		button, [role='button'],
+		button, [role='button' i],
 		input:is([type='submit' i], [type='button' i], [type='reset' i])
 	) {
 		appearance: none;
@@ -539,8 +550,6 @@
 
 		display    : inline-grid;
 		place-items: center;
-
-		touch-action: manipulation;
 	}
 
 	:where(button[type='submit' i], input[type='submit' i]) {
