@@ -30,7 +30,7 @@
 	},
 	"packageManager": "yarn@1.22.22",
 	"devDependencies": {
-		"parcel": "^2.16.0",
+		"parcel": "^2.16.1",
 		"svgo": "^4"
 	}
 }
