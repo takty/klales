@@ -28,7 +28,7 @@
 			"nesting": true
 		}
 	},
-	"packageManager": "yarn@4.12.0",
+	"packageManager": "yarn@4.13.0",
 	"devDependencies": {
 		"parcel": "^2.16.4",
 		"svgo": "^4"
